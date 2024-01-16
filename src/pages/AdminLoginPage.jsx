@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AdminLoginPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const login = async (event) => {
+    event.preventDefault();
+
+    const res = await fetch("http://localhost:4000/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log(res);
+  };
+
   return (
-    <form className="flex flex-col items-center w-full max-w-md p-6 mx-auto mt-24 bg-white rounded-md shadow-md">
+    <form
+      onSubmit={login}
+      className="flex flex-col items-center w-full max-w-md p-6 mx-auto mt-24 bg-white rounded-md shadow-md"
+    >
       <h1 className="mb-8 text-3xl font-semibold text-neutral900">
         Login as Admin
       </h1>
@@ -11,8 +29,8 @@ const AdminLoginPage = () => {
           type="text"
           className="w-full px-4 py-2 border-b-2 border-neutral300 focus:outline-none focus:border-primary03"
           placeholder="Username"
-          // value={username}
-          // onChange={ev => setUsername(ev.target.value)}
+          value={username}
+          onChange={(ev) => setUsername(ev.target.value)}
         />
       </div>
       <div className="w-full mb-6">
@@ -20,8 +38,8 @@ const AdminLoginPage = () => {
           type="password"
           className="w-full px-4 py-2 border-b-2 border-neutral300 focus:outline-none focus:border-primary03"
           placeholder="Password"
-          // value={password}
-          // onChange={ev => setPassword(ev.target.value)}
+          value={password}
+          onChange={(ev) => setPassword(ev.target.value)}
         />
       </div>
       <button
