@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 const MainNavigation = () => {
   return (
     <>
-      <nav className=" w-full border-b-[1px] border-neutral-400">
+      <nav className=" w-full border-b-[1px] border-neutral-300 shadow">
         <div className=" px-[5%] flex w-full max-w-screen-xl mx-auto justify-between h-[72px] items-center">
-          <a className="flex items-center gap-2">
-            <img className=" h-16 " src={logo} alt="Asmi life Logo" />
+          <Link to={"/"} className="flex items-center gap-1">
+            <img className="h-16 " src={logo} alt="Asmi life Logo" />
             <p className=" font-semibold text-3xl text-[#333]">Asmi</p>
-          </a>
+          </Link>
 
           <div>
-            <ul className=" flex gap-8 font-semibold text-neutral-900">
+            <ul className="flex gap-8 font-semibold text-neutral-900">
               <li>
                 <Link to={"/"}>Home</Link>
               </li>
