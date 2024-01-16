@@ -5,7 +5,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("./models/User");
-const secret = "cdgyuvckgwjhqdkcndb";
 
 const app = express();
 
@@ -40,9 +39,7 @@ app.get("/profile", (req, res) => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://Asmi:YXR5NKHGHscoQeOi@cluster0.0lnxe2m.mongodb.net/asmi?retryWrites=true&w=majority"
-  )
+  .connect("")
   .then(() => {
     app.listen(4000, () => {
       console.log("Listening on port 4000");
