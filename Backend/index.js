@@ -2,27 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const User = require("./models/User");
+const secret = "cdgyuvckgwjhqdkcndb";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// app.use((req, res, next) => {
-//   User.findById("65a6831555e7a61b1f59d3cf")
-//     .then((user) => {
-//       req.currentUser = user;
-//       console.log(user);
-//       next();
-//     })
-//     .catch((err) => {
-//       console.error("Error fetching user:", err);
-//       next(err);
-//     });
-// });
 
 app.get("/test", (req, res) => {
   res.json("test ok");
@@ -33,10 +22,21 @@ app.post("/login", async (req, res) => {
 
   const userDoc = await User.findOne({ username });
   const passOk = bcrypt.compareSync(password, userDoc.password);
-  res.json(passOk);
 
-  // console.log("username and password", username, password);
-  // res.json("okkk");
+  if (passOk) {
+    // logged in
+
+    jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
+      if (err) throw err;
+      res.cookie("token", token).json("ok");
+    });
+  } else {
+    res.status(400).json("wrong credentials");
+  }
+});
+
+app.get("/profile", (req, res) => {
+  res.json(req.cookies);
 });
 
 mongoose

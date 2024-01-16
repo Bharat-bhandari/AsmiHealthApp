@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  const navigate = useNavigate();
 
   const login = async (event) => {
     event.preventDefault();
@@ -11,9 +15,17 @@ const AdminLoginPage = () => {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
 
-    console.log(res);
+    console.log(res.ok);
+
+    if (res.ok) {
+      setRedirect(true);
+      navigate("/blogs");
+    } else {
+      alert("wrong credentials");
+    }
   };
 
   return (
