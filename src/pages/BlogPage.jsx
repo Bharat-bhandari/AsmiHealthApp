@@ -36,7 +36,7 @@ const BlogPage = () => {
         <>
           <Link
             className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-            to={"/create-new-blog"}
+            to={"/create-blog"}
           >
             Create new Blog
           </Link>

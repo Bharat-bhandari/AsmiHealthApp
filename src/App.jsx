@@ -8,6 +8,7 @@ import BlogPage from "./pages/BlogPage";
 import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import AdminLoginPage from "./pages/AdminLoginPage";
+import CreateBlog from "./pages/CreateBlog";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: "/contact-us", element: <Contact /> },
       { path: "/how-it-works", element: <HowItWorks /> },
       { path: "/admin-login", element: <AdminLoginPage /> },
+      { path: "/create-blog", element: <CreateBlog /> },
     ],
   },
 ]);
