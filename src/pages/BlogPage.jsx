@@ -19,6 +19,14 @@ const BlogPage = () => {
     });
   }, [dispatch]);
 
+  useEffect(() => {
+    fetch("http://localhost:4000/post").then((response) => {
+      response.json().then((posts) => {
+        console.log(posts);
+      });
+    });
+  }, []);
+
   const logout = () => {
     fetch("http://localhost:4000/logout", {
       credentials: "include",
