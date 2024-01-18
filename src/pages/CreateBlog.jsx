@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -8,6 +10,8 @@ const CreateBlog = () => {
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
+
+  const navigate = useNavigate();
 
   const createNewPost = async (event) => {
     event.preventDefault();
@@ -23,6 +27,11 @@ const CreateBlog = () => {
       method: "POST",
       body: data,
     });
+
+    if (response.ok) {
+      setRedirect(true);
+      navigate("/blogs");
+    }
   };
 
   return (
