@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./MainNavigation.css";
-
 import logo from "../assets/image/logo.png";
 import { Link } from "react-router-dom";
 

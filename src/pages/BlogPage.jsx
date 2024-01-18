@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { setUserName } from "../store/slices/userInfo";
+import Blog from "../components/Blog";
 
 const BlogPage = () => {
   const dispatch = useDispatch();
+
+  const [posts, setPosts] = useState([]);
 
   const username = useSelector((state) => state.userInfo.username);
 
@@ -23,6 +26,7 @@ const BlogPage = () => {
     fetch("http://localhost:4000/post").then((response) => {
       response.json().then((posts) => {
         console.log(posts);
+        setPosts(posts);
       });
     });
   }, []);
@@ -37,9 +41,9 @@ const BlogPage = () => {
 
   return (
     <div className="container px-4 mx-auto my-8">
-      <h2 className="mb-4 text-3xl font-semibold">Latest Blogs</h2>
       {/* Your blog content goes here */}
 
+      {posts.length > 0 && posts.map((post) => <Blog {...post} />)}
       {username && (
         <>
           <Link
