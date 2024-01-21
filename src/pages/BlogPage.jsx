@@ -43,7 +43,7 @@ const BlogPage = () => {
     <div className="container px-[5%] mx-auto">
       {/* Your blog content goes here */}
 
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full mx-auto max-w-7xl">
         <section className="container py-32">
           <div>
             <div className="w-full max-w-2xl">
@@ -56,7 +56,7 @@ const BlogPage = () => {
                 soluta sunt vero.
               </p>
             </div>
-            <section className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+            <section className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-[2%]">
               {posts.length > 0 &&
                 posts.map((post) => <Blog key={post._id} {...post} />)}
             </section>

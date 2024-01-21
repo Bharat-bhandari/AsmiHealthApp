@@ -1,7 +1,17 @@
 import React, { useEffect } from "react";
 import img1 from "../assets/image/img1.png";
 
+import { GrFormNextLink } from "react-icons/gr";
+
 const Blog = ({ title, summary, cover, content }) => {
+  const truncateText = (text, limit) => {
+    const words = text.split(" ");
+    if (words.length > limit) {
+      return words.slice(0, limit).join(" ") + "...";
+    }
+    return text;
+  };
+
   return (
     <div
     // className="flex flex-col h-full border rounded-lg border-neutral-200"
@@ -10,7 +20,7 @@ const Blog = ({ title, summary, cover, content }) => {
     >
       <a
         href="#"
-        className="flex flex-col overflow-hidden hover:translate-y-[-3px] duration-300 transform transition-transform border rounded-lg h-[65vh] border-neutral-200 shadow-box"
+        className="flex flex-col overflow-hidden hover:translate-y-[-3px] duration-300 transform transition-transform border rounded-lg h-[50vh] border-neutral-200 shadow-box"
       >
         <div className="w-full overflow-hidden h-[50%]">
           <img
@@ -19,26 +29,24 @@ const Blog = ({ title, summary, cover, content }) => {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="flex flex-col h-[50%] p-6 justify-between">
+        <div className="flex flex-col h-[50%] px-6 py-2 justify-between">
           <div>
-            <div className="flex items-center gap-4 tagger">
-              <div className="px-2 py-1 text-white bg-gray-500 rounded-md indibp_category">
+            <div className="flex items-center gap-2 font-semibold text-neutral-900">
+              <div className="px-4 py-[2px] font-semibold border-black rounded-md bg-neutral-200 text-neutral-900">
                 {title}
               </div>
-              <div className="px-2 py-1 rounded-md indibp_dur bg-antiquewhite">
-                4min read
-              </div>
+              <div className="text-sm">4min read</div>
             </div>
-            <div className="mb-3 text-lg font-semibold indibp_title">
-              {summary}
+            <div className="mt-1 mb-1 text-xl font-semibold text-neutral-900">
+              {truncateText(summary, 7)}
             </div>
             <div
-              className="mb-3 text-sm indibp_content"
-              dangerouslySetInnerHTML={{ __html: content }}
+              className="mb-2 text-xs"
+              dangerouslySetInnerHTML={{ __html: truncateText(content, 15) }}
             ></div>
           </div>
-          <div className="mt-4 text-sm font-medium indibp_rmicon">
-            Read More ..
+          <div className="flex items-center tex-sm">
+            Read More <GrFormNextLink className="size-5" />
           </div>
         </div>
       </a>

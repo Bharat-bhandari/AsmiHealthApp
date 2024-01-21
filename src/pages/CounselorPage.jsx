@@ -1,6 +1,6 @@
 import React from "react";
 
-import img1 from "../assets/image/img1.png";
+import img1 from "../assets/image/image4.png";
 
 const CounselorPage = () => {
   return (
