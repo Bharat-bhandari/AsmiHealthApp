@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads/" });
 const fs = require("fs");
+const nodemailer = require("nodemailer");
 
 const User = require("./models/User");
 const Post = require("./models/Post");
@@ -84,6 +85,19 @@ app.post("/post", uploadMiddleware.single("file"), async (req, res) => {
 app.get("/post", async (req, res) => {
   const posts = await Post.find();
   res.json(posts);
+});
+
+app.get("mail", async (req, res) => {
+  const transporter = nodemailer.createTransport({
+    host: "smtp.forwardemail.net",
+    port: 465,
+    secure: true,
+    auth: {
+      // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+      user: "REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM",
+      pass: "REPLACE-WITH-YOUR-GENERATED-PASSWORD",
+    },
+  });
 });
 
 mongoose

@@ -40,38 +40,58 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="container px-4 mx-auto my-8">
+    <div className="container px-[5%] mx-auto">
       {/* Your blog content goes here */}
 
-      {posts.length > 0 && posts.map((post) => <Blog {...post} />)}
-      {username && (
-        <>
-          <Link
-            className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-            to={"/create-blog"}
-          >
-            Create new Blog
-          </Link>
+      <div className="w-full max-w-5xl mx-auto">
+        <section className="container py-32">
+          <div>
+            <div className="w-full max-w-2xl">
+              <div className="mb-10 text-5xl font-semibold text-neutral-900">
+                Latest Blogs
+              </div>
+              <p className="pb-20 ">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo
+                enim magnam ut. Veritatis officiis quaerat, odit molestias
+                soluta sunt vero.
+              </p>
+            </div>
+            <section className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+              {posts.length > 0 &&
+                posts.map((post) => <Blog key={post._id} {...post} />)}
+            </section>
+          </div>
+        </section>
 
-          <a
-            className="inline-block px-4 py-2 ml-4 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-            onClick={logout}
-          >
-            Logout
-          </a>
-        </>
-      )}
+        {username && (
+          <>
+            <Link
+              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+              to={"/create-blog"}
+            >
+              Create new Blog
+            </Link>
 
-      {!username && (
-        <>
-          <Link
-            to={"/admin-login"}
-            className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-          >
-            Login as Admin
-          </Link>
-        </>
-      )}
+            <a
+              className="inline-block px-4 py-2 ml-4 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+              onClick={logout}
+            >
+              Logout
+            </a>
+          </>
+        )}
+
+        {!username && (
+          <>
+            <Link
+              to={"/admin-login"}
+              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+            >
+              Login as Admin
+            </Link>
+          </>
+        )}
+      </div>
     </div>
   );
 };
