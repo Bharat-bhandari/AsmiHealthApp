@@ -1,7 +1,7 @@
 import React from "react";
 
 import logo from "../assets/image/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MainNavigation = () => {
   return (
@@ -16,22 +16,82 @@ const MainNavigation = () => {
           <div>
             <ul className="flex gap-8 font-semibold text-neutral-900">
               <li>
-                <Link to={"/"}>Home</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-300 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/"}
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <Link to={"/how-it-works"}>How It Works</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-300 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/how-it-works"}
+                >
+                  How It Works
+                </NavLink>
               </li>
               <li>
-                <Link to={"/about-us"}>Team</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-300 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/about-us"}
+                >
+                  Team
+                </NavLink>
               </li>
               <li>
-                <Link to={"/counselors"}>Counselors</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-300 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/counselors"}
+                >
+                  Counselors
+                </NavLink>
               </li>
               <li>
-                <Link to={"/blogs"}>Blogs</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-300 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/blogs"}
+                >
+                  Blogs
+                </NavLink>
               </li>
               <li>
-                <Link to={"/contact-us"}>Contact Us</Link>
+                <NavLink
+                  className={({ isActive }) => {
+                    return (
+                      " hover:bg-neutral-200 transition duration-100 py-1 px-2 rounded ease-in-out " +
+                      (isActive ? "text-primary03" : "")
+                    );
+                  }}
+                  to={"/contact-us"}
+                >
+                  Contact Us
+                </NavLink>
               </li>
             </ul>
           </div>
