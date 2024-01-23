@@ -14,6 +14,27 @@ import aboutusimg2 from "../assets/image/aboutusimg2.png";
 import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
+  const paymentHandler = async (event) => {
+    const amount = 500;
+    const currency = "INR";
+    const receiptID = "qwsaq1";
+
+    const response = await fetch("http://localhost:4000/order", {
+      method: "POST",
+      body: JSON.stringify({
+        amount,
+        currency,
+        receipt: receiptID,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const order = await response.json();
+    console.log(order);
+  };
+
   return (
     <div className="container px-[5%] mx-auto">
       <div className="w-full mx-auto max-w-7xl">
@@ -149,6 +170,16 @@ const HomePage = () => {
                   Contact Us
                 </NavLink>
               </div>
+            </section>
+
+            <section>
+              <h1 className="text-8xl">Test here </h1>
+              <button
+                onClick={paymentHandler}
+                className="p-3 font-semibold transition duration-300 ease-in-out bg-white border border-solid rounded-md border-neutral-300 text-neutral-900 hover:bg-neutral-200 hover:translate-y-[-2px] "
+              >
+                Pay
+              </button>
             </section>
           </div>
         </div>
