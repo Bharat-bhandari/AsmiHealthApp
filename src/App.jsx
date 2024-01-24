@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import CreateBlog from "./pages/CreateBlog";
+import GiftCard from "./components/GiftCard";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/how-it-works", element: <HowItWorks /> },
       { path: "/admin-login", element: <AdminLoginPage /> },
       { path: "/create-blog", element: <CreateBlog /> },
+      { path: "/gift-card", element: <GiftCard /> },
     ],
   },
 ]);
