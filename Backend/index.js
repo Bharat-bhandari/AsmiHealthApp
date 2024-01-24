@@ -2,13 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const Razorpay = require("razorpay");
 
 require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 const mailRoutes = require("./routes/mailRoutes");
+const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
@@ -29,32 +29,10 @@ app.get("/test", (req, res) => {
 
 // Payment
 
-app.post("/order", async (req, res) => {
-  try {
-    const razorpay = new Razorpay({
-      key_id: process.env.RAZOR_KEY_ID,
-      key_secret: process.env.RAZORPAY_SECRET,
-    });
-
-    const options = req.body;
-    const order = await razorpay.orders.create(options);
-
-    if (!order) {
-      return res.status(500).send("Error in Payment");
-    }
-
-    res.json(order);
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("err");
-  }
-});
-
-// End of Payment
-
 app.use(authRoutes);
 app.use(postRoutes);
 app.use(mailRoutes);
+app.use(paymentRoutes);
 
 mongoose
   .connect(mongoURI)
