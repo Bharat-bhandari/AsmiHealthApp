@@ -1,11 +1,21 @@
 import { Fragment } from "react";
 
-import aboutusimg1 from "../assets/image/aboutusimg1.png";
-import aboutusimg2 from "../assets/image/aboutusimg2.png";
+import aboutusimg1 from "../assets/image/team/uhf.png";
+import aboutusimg2 from "../assets/image/team/akm.png";
+import aboutusimg3 from "../assets/image/team/mrpd.png";
+import aboutusimg4 from "../assets/image/team/mspd.png";
+import aboutusimg5 from "../assets/image/team/arf.png";
+import aboutusimg6 from "../assets/image/team/tghr.png";
+import aboutusimg7 from "../assets/image/team/sgp.png";
+import aboutusimg8 from "../assets/image/team/skp.png";
+import aboutusimg9 from "../assets/image/team/fgp.png";
+import aboutusimg10 from "../assets/image/team/skp2.png";
+
+import auimage1 from "../assets/image/aboutusimg1.png";
+import auimage2 from "../assets/image/aboutusimg2.png";
+
 import { FaCheckCircle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-
-import img3 from "../assets/image/img3.png";
 
 const AboutPage = () => {
   return (
@@ -86,7 +96,7 @@ const AboutPage = () => {
                 <div>
                   <img
                     className="inline-block max-w-full align-middle border-0 min-h-[35rem] object-cover rounded-2xl"
-                    src={aboutusimg1}
+                    src={auimage1}
                     alt=""
                   />
                 </div>
@@ -131,16 +141,17 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg1}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Ujjwal Handa</div>
+                      <div className="text-sm">Founder</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I bring a passion for innovation and a strategic mindset
+                        to drive the companys success.
                       </p>
                       <div className="p-4 "></div>
                     </div>
@@ -150,16 +161,17 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg2}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Arvinder Kaur</div>
+                      <div className="text-sm">Marketing</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I specialize in driving online presence and brand
+                        visibility to new heights.
                       </p>
                       <div className="p-4 "></div>
                     </div>
@@ -169,16 +181,18 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg3}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Md. Riswan</div>
+                      <div className="text-sm">Product Development</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        As a skilled Front-end Flutter Developer, I specialize
+                        in creating visually appealing and responsive user
+                        interfaces for mobile applications.
                       </p>
                       <div className="p-4 "></div>
                     </div>
@@ -188,16 +202,17 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg4}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Md. Safvan</div>
+                      <div className="text-sm">Product Development</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        As an adept Python Django Developer, I specialize in
+                        crafting robust and scalable web applications.
                       </p>
                       <div className="p-4 "></div>
                     </div>
@@ -207,16 +222,17 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg5}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Ayushi Rana</div>
+                      <div className="text-sm">Finance</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I specialize in ensuring financial excellence and
+                        stability within organizations.
                       </p>
                       <div className="p-4 "></div>
                     </div>
@@ -226,20 +242,112 @@ const AboutPage = () => {
                       <div>
                         <img
                           className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={img3}
+                          src={aboutusimg6}
                           alt=""
                         />
                       </div>
                       <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Baki Hanma</div>
-                      <div className="text-sm">BodyBuilder</div>
+                      <div className="text-xl font-semibold">Tanvi Gupta</div>
+                      <div className="text-sm">Human Rescource</div>
                       <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-white">
-                        Lorem ipsum dolor sit amet consectetur.
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I specialize in identifying and nurturing exceptional
+                        talent to create vibrant workplace environments.
                       </p>
                       <div className="p-4 "></div>
                     </div>
                   </div>
+                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
+                    <div>
+                      <div>
+                        <img
+                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg7}
+                          alt=""
+                        />
+                      </div>
+                      <div className="p-4 "></div>
+                      <div className="text-xl font-semibold">
+                        Shraddha Gupta
+                      </div>
+                      <div className="text-sm">Psychologist</div>
+                      <div className="p-4 "></div>
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        My personal way to healing others is very holistic, warm
+                        and flexible.
+                      </p>
+                      <div className="p-4 "></div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
+                    <div>
+                      <div>
+                        <img
+                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg8}
+                          alt=""
+                        />
+                      </div>
+                      <div className="p-4 "></div>
+                      <div className="text-xl font-semibold">Saloni Karwa</div>
+                      <div className="text-sm">Psychologist</div>
+                      <div className="p-4 "></div>
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I am a dedicated and compassionate psychologist with a
+                        masters degree in clinical psychology.
+                      </p>
+                      <div className="p-4 "></div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
+                    <div>
+                      <div>
+                        <img
+                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg9}
+                          alt=""
+                        />
+                      </div>
+                      <div className="p-4 "></div>
+                      <div className="text-xl font-semibold">
+                        Shivangi Kapoor
+                      </div>
+                      <div className="text-sm">Psychologist</div>
+                      <div className="p-4 "></div>
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        Counselling psychologist with a Masters in Clinical
+                        Psychology and 2 years of experience in aiding
+                        management of Mood disorders, Personality disorders,
+                        Relationship/ Family Issues, Workplace/ Academic Stress
+                        Management and General Stress.
+                      </p>
+                      <div className="p-4 "></div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
+                    <div>
+                      <div>
+                        <img
+                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg10}
+                          alt=""
+                        />
+                      </div>
+                      <div className="p-4 "></div>
+                      <div className="text-xl font-semibold">
+                        Felicia Gangmei
+                      </div>
+                      <div className="text-sm">Psychologist</div>
+                      <div className="p-4 "></div>
+                      <p className="mt-0 mb-0 text-sm text-white">
+                        I am a dedicated Counselling Psychologist committed to
+                        supporting individuals on their journey towards
+                        emotional well-being and personal growth.
+                      </p>
+                      <div className="p-4 "></div>
+                    </div>
+                  </div>
+
                   <div className="p-24"></div>
                 </div>
               </div>
@@ -257,7 +365,7 @@ const AboutPage = () => {
                 <div>
                   <img
                     className="inline-block max-w-full align-middle border-0 min-h-[35rem] object-cover rounded-2xl"
-                    src={aboutusimg2}
+                    src={auimage2}
                     alt=""
                   />
                 </div>
@@ -266,10 +374,7 @@ const AboutPage = () => {
                     Values
                   </div>
                   <div className="p-2 "></div>
-                  <div
-                    className="text-5xl font-semibold leading-[1.2]
-  font-family: Clashdisplay variable, sans-serif text-neutral-900"
-                  >
+                  <div className="text-5xl font-semibold leading-[1.2] text-neutral-900">
                     Why are we doing this
                   </div>
                   <div className="p-4 "></div>

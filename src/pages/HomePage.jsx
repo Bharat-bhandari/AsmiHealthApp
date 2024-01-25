@@ -19,115 +19,16 @@ import { FaCheckCircle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import aboutusimg2 from "../assets/image/aboutusimg2.png";
 import { NavLink } from "react-router-dom";
+import Chidiya from "../components/Chidiya";
 
 const HomePage = () => {
-  const paymentHandler = async (event) => {
-    const amount = 500;
-    const currency = "INR";
-    const receiptID = "qwsaq1";
-
-    const response = await fetch("http://localhost:4000/order", {
-      method: "POST",
-      body: JSON.stringify({
-        amount,
-        currency,
-        receipt: receiptID,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const order = await response.json();
-    console.log(order);
-    // var options = {
-    //   key: "rzp_test_c4hShO3F4IFfC4", // Enter the Key ID generated from the Dashboard
-    //   amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    //   currency,
-    //   name: "Asmi", //your business name
-    //   description: "Test Transaction",
-    //   image: "https://example.com/your_logo",
-    //   order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    //   handler: async function (response) {
-    //     const body = {
-    //       ...response,
-    //     };
-
-    //     const validateRes = await fetch(
-    //       "http://localhost:4000/order/validate",
-    //       {
-    //         method: "POST",
-    //         body: JSON.stringify(body),
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-
-    //     const jsonRes = await validateRes.json();
-    //     console.log(jsonRes);
-    //   },
-    //   prefill: {
-    //     //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
-    //     name: "Bharat", //your customer's name
-    //     email: "test@gmail.com",
-    //     contact: "9000090000", //Provide the customer's phone number for better conversion rates
-    //   },
-    //   notes: {
-    //     address: "Razorpay Corporate Office",
-    //   },
-    //   theme: {
-    //     color: "#3399cc",
-    //   },
-    // };
-
-    const razorpayKey = await fetch("http://localhost:4000/getKey");
-
-    const razorpayKeyData = await razorpayKey.json();
-
-    var options = {
-      key: razorpayKeyData.key, // Enter the Key ID generated from the Dashboard
-      amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency,
-      name: "Asmi Health", //your business name
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: "http://localhost:4000/order/validate",
-      prefill: {
-        //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        name: "Bharat", //your customer's name
-        email: "test@gmail.com",
-        contact: "9000090000", //Provide the customer's phone number for better conversion rates
-      },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
-    };
-
-    const rzp1 = new window.Razorpay(options);
-    // rzp1.on("payment.failed", function (response) {
-    //   alert(response.error.code);
-    //   alert(response.error.description);
-    //   alert(response.error.source);
-    //   alert(response.error.step);
-    //   alert(response.error.reason);
-    //   alert(response.error.metadata.order_id);
-    //   alert(response.error.metadata.payment_id);
-    // });
-
-    rzp1.open();
-    event.preventDefault();
-  };
-
   return (
     <div className="container px-[5%] mx-auto">
       <div className="w-full mx-auto max-w-7xl">
         <div className="py-28">
           <div className="flex flex-col items-center ">
+            <Chidiya />
+
             {/* start section */}
             <section className="relative">
               <div className="w-full max-w-5xl mx-auto text-center">
@@ -311,9 +212,9 @@ const HomePage = () => {
                 loved one's mental health issues and give them the gift of
                 happiness.
               </h1>
-              <div className="mt-8 flex justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
+              <div className="mt-8 flex justify-center transition duration-300 ease-in-out  hover:translate-y-[-1px]">
                 <NavLink
-                  className="p-3 mx-auto font-semibold bg-white border border-solid rounded-md w-fit hover:bg-neutral-200 border-neutral-300 text-neutral-900"
+                  className="p-3 mx-auto font-semibold text-white border border-solid rounded-md bg-primary03 w-fit hover:bg-primary05 border-neutral-300"
                   to={"/gift-card"}
                 >
                   Click Here To Gift Your Loved Ones A Mental Health Wellness
@@ -327,7 +228,7 @@ const HomePage = () => {
             </section>
             {/* End of GiftCard */}
 
-            <section className="py-32 mx-auto ">
+            <section className="mx-auto mt-32 ">
               <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
                 Still have questions?
               </h4>
@@ -344,7 +245,7 @@ const HomePage = () => {
               </div>
             </section>
 
-            <section>
+            {/* <section>
               <h1 className="text-8xl">Test here </h1>
               <button
                 onClick={paymentHandler}
@@ -352,7 +253,7 @@ const HomePage = () => {
               >
                 Pay
               </button>
-            </section>
+            </section> */}
           </div>
         </div>
       </div>

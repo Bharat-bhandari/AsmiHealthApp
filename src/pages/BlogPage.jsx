@@ -85,7 +85,7 @@ const BlogPage = () => {
           <>
             <Link
               to={"/admin-login"}
-              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary05 focus:outline-none"
             >
               Login as Admin
             </Link>

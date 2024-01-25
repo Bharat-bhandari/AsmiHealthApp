@@ -17,6 +17,7 @@ export default {
         neutral200: "#eaecf0",
         neutral500: "#667085",
         primary03: "#fe5636",
+        primary05: "#fc2902",
         neutral800: "#1d2939",
         neutral400: "#98a1b2",
         neutral700: "#344054",
