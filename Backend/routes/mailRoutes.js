@@ -4,6 +4,6 @@ const router = express.Router();
 
 const mailControllers = require("../controllers/mailControllers");
 
-router.get("mail", mailControllers.getMail);
+router.post("/send-email", mailControllers.postMail);
 
 module.exports = router;

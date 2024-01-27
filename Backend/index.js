@@ -27,8 +27,6 @@ app.get("/test", (req, res) => {
   res.json("test ok");
 });
 
-// Payment
-
 app.use(authRoutes);
 app.use(postRoutes);
 app.use(mailRoutes);
