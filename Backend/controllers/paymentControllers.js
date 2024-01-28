@@ -95,8 +95,8 @@ exports.postOrder = async (req, res) => {
 
 exports.postOrderValidate = async (req, res) => {
   const {
-    Name,
-    email,
+    userEmail,
+    userName,
     razorpay_payment_id,
     razorpay_order_id,
     razorpay_signature,
@@ -118,7 +118,7 @@ exports.postOrderValidate = async (req, res) => {
     try {
       const giftCardCode = generateGiftCardCode();
 
-      const message = `Dear ${Name},
+      const message = `Dear ${userName},
 
 Thank you for your purchase!
 
@@ -129,12 +129,12 @@ Please feel free to contact us if you have any questions or concerns.
 Best regards,
 Asmi Team`;
 
-      await mailGeneratedCode(email, message);
+      await mailGeneratedCode(userEmail, message);
 
       await Payment.create({
         giftCardCode,
-        userName: Name,
-        userEmail: email,
+        userName: userName,
+        userEmail: userEmail,
         razorpay_order_id,
         razorpay_payment_id,
         razorpay_signature,

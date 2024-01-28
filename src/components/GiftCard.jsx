@@ -5,13 +5,15 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 
 const GiftCard = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [message, setMessage] = useState("");
 
   // payment-----------------------------
   const paymentHandler = async (event) => {
+    event.preventDefault();
+
     const amount = 500;
     const currency = "INR";
     const receiptID = "qwsaq1";
@@ -43,12 +45,36 @@ const GiftCard = () => {
       description: "Test Transaction",
       image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: "http://localhost:4000/order/validate",
+      handler: async function (response) {
+        const data = {
+          // orderCreationId: order.id,
+          userName: userName,
+          userEmail: userEmail,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_signature: response.razorpay_signature,
+        };
+
+        const result = await fetch("http://localhost:4000/order/validate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        const responseData = await result.json();
+
+        if (result.ok) {
+          alert(`Success!   Order ID: ${responseData.orderId}`);
+        } else {
+          alert(responseData.msg);
+        }
+      },
       prefill: {
-        //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        name: "Bharat", //your customer's name
-        email: "test@gmail.com",
-        contact: "9000090000", //Provide the customer's phone number for better conversion rates
+        // name: "", //your customer's name
+        // email: "gaurav.kumar@example.com",
+        // contact: "9000090000",
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -59,18 +85,11 @@ const GiftCard = () => {
     };
 
     const rzp1 = new window.Razorpay(options);
-    // rzp1.on("payment.failed", function (response) {
-    //   alert(response.error.code);
-    //   alert(response.error.description);
-    //   alert(response.error.source);
-    //   alert(response.error.step);
-    //   alert(response.error.reason);
-    //   alert(response.error.metadata.order_id);
-    //   alert(response.error.metadata.payment_id);
-    // });
+    rzp1.on("payment.failed", function (response) {
+      alert(response.error.description);
+    });
 
     rzp1.open();
-    event.preventDefault();
   };
   // end of payment-----------------------------
 
@@ -89,15 +108,6 @@ const GiftCard = () => {
   };
 
   const amount = 650 * quantity;
-
-  // -------------------------------contact info
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", { email, name, deliveryDate, message });
-    // You can add your logic to submit the form data to the server or perform any other actions here
-  };
 
   return (
     <>
@@ -120,82 +130,80 @@ const GiftCard = () => {
                   season, is a window to happiness! Gift them a free counselling
                   session today!
                 </p>
-
-                <div className="grid grid-cols-2 mt-6">
-                  <div>
-                    <h1>Amount</h1>
-                    <div className="bg-[#e8effd] border-[#1a6aff] border w-fit px-2 py-1 ">
-                      ₹{amount}
+                <form className="mt-8" onSubmit={paymentHandler}>
+                  <div className="grid grid-cols-2 mt-6">
+                    <div>
+                      <h1>Amount</h1>
+                      <div className="bg-[#e8effd] border-[#1a6aff] border w-fit px-2 py-1 ">
+                        ₹{amount}
+                      </div>
+                    </div>
+                    <div>
+                      <h1>Quantity</h1>
+                      <div className="flex gap-2 px-3 py-1 border border-black opacity-90 w-fit">
+                        <button onClick={handleDecrease}>
+                          <FiMinus />
+                        </button>
+                        <span>{quantity}</span>
+                        <button onClick={handleIncrease}>
+                          <FiPlus />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <h1>Quantity</h1>
-                    <div className="flex gap-2 px-3 py-1 border border-black opacity-90 w-fit">
-                      <button onClick={handleDecrease}>
-                        <FiMinus />
-                      </button>
-                      <span>{quantity}</span>
-                      <button onClick={handleIncrease}>
-                        <FiPlus />
-                      </button>
+
+                  <h1 className="mt-6">Who's the gift card for?</h1>
+                  <div className="grid grid-cols-2 my-2 gap-x-2">
+                    <div className="grid-cols-1 px-5 py-2 text-center border border-black">
+                      For someone else
+                    </div>
+                    <div className="px-5 py-2 border bg-[#e8effd] border-[#1a6aff] text-center">
+                      For myself
                     </div>
                   </div>
-                </div>
 
-                <h1 className="mt-6">Who's the gift card for?</h1>
-                <div class="grid grid-cols-2 gap-x-2 my-2">
-                  <div class="px-5 py-2 border border-black grid-cols-1 text-center">
-                    For someone else
-                  </div>
-                  <div class="px-5 py-2 border bg-[#e8effd] border-[#1a6aff] text-center">
-                    For myself
-                  </div>
-                </div>
-
-                <button
-                  onClick={paymentHandler}
-                  className="w-full p-3 mt-4 text-white transition transform bg-black hover:bg-neutral-900"
-                >
-                  Buy now
-                </button>
-
-                <form onSubmit={handleSubmit}>
-                  <h2>Gift Card Payment</h2>
                   <div>
-                    <label>Email:</label>
+                    <label className="block my-1 ">Email</label>
                     <input
                       type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      className="block w-full p-2 mb-4 bg-white border border-black border-solid min-h-12"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
                       required
                     />
                   </div>
                   <div>
-                    <label>Name:</label>
+                    <label className="block my-1">Name:</label>
                     <input
                       type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      className="block w-full p-2 mb-6 bg-white border border-black border-solid min-h-12"
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
                       required
                     />
                   </div>
-                  <div>
-                    <label>Delivery Date:</label>
+                  {/* <div>
+                    <label className="block my-1">Delivery Date:</label>
                     <input
                       type="date"
+                      className="block w-full p-2 mb-6 bg-white border border-black border-solid min-h-12"
                       value={deliveryDate}
                       onChange={(e) => setDeliveryDate(e.target.value)}
                       required
                     />
                   </div>
                   <div>
-                    <label>Message:</label>
+                    <label className="block my-1">Message</label>
                     <textarea
                       value={message}
+                      placeholder="Type your message.."
+                      className="w-full p-2 mb-4 bg-white border border-black border-solid rounded min-h-32"
                       onChange={(e) => setMessage(e.target.value)}
                     ></textarea>
-                  </div>
-                  <button type="submit">Submit</button>
+                  </div> */}
+                  <button className="w-full p-3 text-white transition transform bg-black hover:bg-neutral-900">
+                    Buy now
+                  </button>
                 </form>
               </div>
             </div>
