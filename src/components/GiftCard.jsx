@@ -5,6 +5,11 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 
 const GiftCard = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [deliveryDate, setDeliveryDate] = useState("");
+  const [message, setMessage] = useState("");
+
   // payment-----------------------------
   const paymentHandler = async (event) => {
     const amount = 500;
@@ -25,46 +30,6 @@ const GiftCard = () => {
 
     const order = await response.json();
     console.log(order);
-    // var options = {
-    //   key: "rzp_test_c4hShO3F4IFfC4", // Enter the Key ID generated from the Dashboard
-    //   amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    //   currency,
-    //   name: "Asmi", //your business name
-    //   description: "Test Transaction",
-    //   image: "https://example.com/your_logo",
-    //   order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    //   handler: async function (response) {
-    //     const body = {
-    //       ...response,
-    //     };
-
-    //     const validateRes = await fetch(
-    //       "http://localhost:4000/order/validate",
-    //       {
-    //         method: "POST",
-    //         body: JSON.stringify(body),
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-
-    //     const jsonRes = await validateRes.json();
-    //     console.log(jsonRes);
-    //   },
-    //   prefill: {
-    //     //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
-    //     name: "Bharat", //your customer's name
-    //     email: "test@gmail.com",
-    //     contact: "9000090000", //Provide the customer's phone number for better conversion rates
-    //   },
-    //   notes: {
-    //     address: "Razorpay Corporate Office",
-    //   },
-    //   theme: {
-    //     color: "#3399cc",
-    //   },
-    // };
 
     const razorpayKey = await fetch("http://localhost:4000/getKey");
 
@@ -125,6 +90,15 @@ const GiftCard = () => {
 
   const amount = 650 * quantity;
 
+  // -------------------------------contact info
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", { email, name, deliveryDate, message });
+    // You can add your logic to submit the form data to the server or perform any other actions here
+  };
+
   return (
     <>
       <div className="container px-[5%] mx-auto">
@@ -180,10 +154,49 @@ const GiftCard = () => {
 
                 <button
                   onClick={paymentHandler}
-                  className="w-full p-3 mt-4 text-white bg-black"
+                  className="w-full p-3 mt-4 text-white transition transform bg-black hover:bg-neutral-900"
                 >
                   Buy now
                 </button>
+
+                <form onSubmit={handleSubmit}>
+                  <h2>Gift Card Payment</h2>
+                  <div>
+                    <label>Email:</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label>Name:</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label>Delivery Date:</label>
+                    <input
+                      type="date"
+                      value={deliveryDate}
+                      onChange={(e) => setDeliveryDate(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label>Message:</label>
+                    <textarea
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    ></textarea>
+                  </div>
+                  <button type="submit">Submit</button>
+                </form>
               </div>
             </div>
           </section>

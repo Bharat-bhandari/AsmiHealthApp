@@ -54,6 +54,7 @@ const Contact = () => {
                 <input
                   type="text"
                   value={userName}
+                  required
                   onChange={(e) => setUserName(e.target.value)}
                   className="p-2 mb-8 text-gray-700 bg-white border border-gray-300 border-solid rounded min-h-12"
                 />
@@ -61,6 +62,7 @@ const Contact = () => {
                 <input
                   type="text"
                   value={recipient_email}
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                   className="p-2 mb-8 text-gray-700 bg-white border border-gray-300 border-solid rounded min-h-12"
                 />
@@ -71,6 +73,7 @@ const Contact = () => {
                   onChange={(e) => setMessages(e.target.value)}
                   placeholder="Type your message.."
                   className="p-2 mb-8 text-gray-700 bg-white border border-gray-300 border-solid rounded min-h-32"
+                  required
                 />
 
                 <button
