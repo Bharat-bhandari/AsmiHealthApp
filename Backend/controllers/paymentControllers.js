@@ -19,13 +19,13 @@ function mailGeneratedCode(recipient_email, message) {
     var transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "bharatbhandari1024@gmail.com",
-        pass: "kemh auno ekbl tzil",
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mail_configs = {
-      from: "bharatbhandari1024@gmail.com",
+      from: process.env.EMAIL_USER,
       to: recipient_email,
       subject: "Asmi Gift Card Code",
       text: message,
