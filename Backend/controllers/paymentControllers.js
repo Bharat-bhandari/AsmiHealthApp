@@ -1,7 +1,76 @@
+const nodemailer = require("nodemailer");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
 const Payment = require("../models/PaymentModel");
+
+function generateGiftCardCode() {
+  const currentTimestamp = Date.now().toString();
+  const randomValue = Math.random().toString(36).substring(2, 8);
+  const giftCardCode = currentTimestamp + randomValue;
+
+  return giftCardCode;
+}
+
+// mail the genarted code
+
+function mailGeneratedCode(recipient_email, message) {
+  return new Promise((resolve, reject) => {
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "bharatbhandari1024@gmail.com",
+        pass: "kemh auno ekbl tzil",
+      },
+    });
+
+    const mail_configs = {
+      from: "bharatbhandari1024@gmail.com",
+      to: recipient_email,
+      subject: "Asmi Gift Card Code",
+      text: message,
+    };
+    transporter.sendMail(mail_configs, function (error, info) {
+      if (error) {
+        console.log(error);
+        return reject({ message: `An error has occured` });
+      }
+      return resolve({ message: "Email sent succesfuly" });
+    });
+
+    console.log("Email Sent!!");
+  });
+}
+
+// end of mail the genarted code
+
+// redeem code
+
+exports.redeemGiftCard = async (req, res) => {
+  const { giftCardCode } = req.body;
+
+  try {
+    const payment = await Payment.findOne({ giftCardCode });
+
+    if (!payment) {
+      return res.status(404).json({ msg: "Invalid gift card code" });
+    }
+
+    if (payment.status) {
+      return res.status(400).json({ msg: "Gift card code already redeemed" });
+    }
+
+    // Update the status of the gift card code to true
+    await Payment.updateOne({ giftCardCode }, { status: true });
+
+    res.json({ msg: "Gift card code redeemed successfully" });
+  } catch (error) {
+    console.error("Error redeeming gift card:", error);
+    res.status(500).json({ msg: "Error redeeming gift card" });
+  }
+};
+
+// End of redeem code
 
 exports.postOrder = async (req, res) => {
   try {
@@ -25,8 +94,15 @@ exports.postOrder = async (req, res) => {
 };
 
 exports.postOrderValidate = async (req, res) => {
-  const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
-    req.body;
+  const {
+    Name,
+    email,
+    razorpay_payment_id,
+    razorpay_order_id,
+    razorpay_signature,
+  } = req.body;
+
+  console.log(req.body);
 
   const sha = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET);
   sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
@@ -39,21 +115,42 @@ exports.postOrderValidate = async (req, res) => {
   const isAuthentic = digest === razorpay_signature;
 
   if (isAuthentic) {
-    // database
+    try {
+      const giftCardCode = generateGiftCardCode();
 
-    await Payment.create({
-      razorpay_order_id,
-      razorpay_payment_id,
-      razorpay_signature,
-    });
+      const message = `Dear ${Name},
 
-    res.redirect("http://localhost:5173/");
+Thank you for your purchase!
 
-    // res.json({
-    //   msg: "success",
-    //   orderId: razorpay_order_id,
-    //   paymentId: razorpay_payment_id,
-    // });
+Your gift card code is: ${giftCardCode}
+
+Please feel free to contact us if you have any questions or concerns.
+
+Best regards,
+Asmi Team`;
+
+      await mailGeneratedCode(email, message);
+
+      await Payment.create({
+        giftCardCode,
+        userName: Name,
+        userEmail: email,
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature,
+      });
+
+      res.json({
+        msg: "success",
+        orderId: razorpay_order_id,
+        paymentId: razorpay_payment_id,
+      });
+    } catch (error) {
+      console.error("Error occurred:", error);
+      return res
+        .status(500)
+        .json({ msg: "Error occurred while processing the request" });
+    }
   } else {
     return res.status(400).json({ msg: "Transaction is not valid!" });
   }
