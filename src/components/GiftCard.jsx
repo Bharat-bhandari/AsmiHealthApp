@@ -4,6 +4,8 @@ import giftImg from "../assets/image/giftCounselling.webp";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 
+import BASE_URL from "../apis/Config";
+
 const GiftCard = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -18,7 +20,7 @@ const GiftCard = () => {
     const currency = "INR";
     const receiptID = "qwsaq1";
 
-    const response = await fetch("http://localhost:4000/order", {
+    const response = await fetch(`${BASE_URL}/order`, {
       method: "POST",
       body: JSON.stringify({
         amount,
@@ -33,7 +35,7 @@ const GiftCard = () => {
     const order = await response.json();
     console.log(order);
 
-    const razorpayKey = await fetch("http://localhost:4000/getKey");
+    const razorpayKey = await fetch(`${BASE_URL}/getKey`);
 
     const razorpayKeyData = await razorpayKey.json();
 
@@ -55,7 +57,7 @@ const GiftCard = () => {
           razorpay_signature: response.razorpay_signature,
         };
 
-        const result = await fetch("http://localhost:4000/order/validate", {
+        const result = await fetch(`${BASE_URL}/order/validate`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

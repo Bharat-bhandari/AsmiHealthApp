@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import image4 from "../assets/image/image4.png";
+import BASE_URL from "../apis/Config";
 
 const Contact = () => {
   const [userName, setUserName] = useState("");
@@ -10,7 +11,7 @@ const Contact = () => {
   const sendMail = async (event) => {
     if (recipient_email && message) {
       try {
-        const response = await fetch("http://localhost:4000/send-email", {
+        const response = await fetch(`${BASE_URL}/send-email`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

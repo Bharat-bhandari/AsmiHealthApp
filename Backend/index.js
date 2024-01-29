@@ -12,8 +12,8 @@ const paymentRoutes = require("./routes/paymentRoutes");
 
 const app = express();
 
-const PORT = process.env.PORT;
-const mongoURI = process.env.MONGO_URI;
+const PORT = process.env.PORT || 4000;
+const mongoURI = process.env.MONGO_URL;
 
 // middlewares
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import BASE_URL from "../apis/Config";
 
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
@@ -23,7 +24,7 @@ const CreateBlog = () => {
     data.set("content", content);
     data.set("file", files[0]);
 
-    const response = await fetch("http://localhost:4000/post", {
+    const response = await fetch(`${BASE_URL}/post`, {
       method: "POST",
       body: data,
     });

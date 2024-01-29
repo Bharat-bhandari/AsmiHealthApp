@@ -3,6 +3,8 @@ import img1 from "../assets/image/img1.png";
 
 import { GrFormNextLink } from "react-icons/gr";
 
+import BASE_URL from "../apis/Config";
+
 const Blog = ({ title, summary, cover, content }) => {
   const truncateText = (text, limit) => {
     const words = text.split(" ");
@@ -24,7 +26,7 @@ const Blog = ({ title, summary, cover, content }) => {
       >
         <div className="w-full overflow-hidden h-[50%]">
           <img
-            src={"http://localhost:4000/" + cover}
+            src={`${BASE_URL}/` + cover}
             alt="image not found "
             className="object-cover w-full h-full"
           />

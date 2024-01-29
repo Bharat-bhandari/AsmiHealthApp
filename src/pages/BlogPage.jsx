@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { setUserName } from "../store/slices/userInfo";
 import Blog from "../components/Blog";
+import BASE_URL from "../apis/Config";
 
 const BlogPage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const BlogPage = () => {
   const username = useSelector((state) => state.userInfo.username);
 
   useEffect(() => {
-    fetch("http://localhost:4000/profile", {
+    fetch(`${BASE_URL}/profile`, {
       credentials: "include",
     }).then((response) => {
       response.json().then((userInfo) => {
@@ -23,7 +24,7 @@ const BlogPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/post").then((response) => {
+    fetch(`${BASE_URL}/post`).then((response) => {
       response.json().then((posts) => {
         console.log(posts);
         setPosts(posts);
@@ -32,7 +33,7 @@ const BlogPage = () => {
   }, []);
 
   const logout = () => {
-    fetch("http://localhost:4000/logout", {
+    fetch(`${BASE_URL}/logout`, {
       credentials: "include",
       method: "POST",
     });
