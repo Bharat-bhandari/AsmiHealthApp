@@ -40,18 +40,18 @@ const Contact = () => {
   return (
     <>
       <div className="container px-[5%] mx-auto">
-        <section className="w-full mx-auto max-w-7xl pt-28">
-          <div className="grid grid-cols-2">
+        <section className="w-full mx-auto mt-8 max-w-7xl md:mt-28">
+          <div className="grid gap-y-6 md:grid-cols-2">
             <div className="flex flex-col max-w-[90%]">
               <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
                 Contact us
               </div>
-              <div className="my-1 font-sans text-4xl font-semibold">
+              <div className="font-sans text-4xl font-semibold md:my-1">
                 We are here to Help
               </div>
 
               <form onSubmit={sendMail} className="flex flex-col">
-                <label className="my-4 text-gray-700">Name</label>
+                <label className="mt-4 text-gray-700 md:mb-4">Name</label>
                 <input
                   type="text"
                   value={userName}
@@ -59,15 +59,15 @@ const Contact = () => {
                   onChange={(e) => setUserName(e.target.value)}
                   className="p-2 mb-8 text-gray-700 bg-white border border-gray-300 border-solid rounded min-h-12"
                 />
-                <label className="my-4 text-gray-700">Email</label>
+                <label className="text-gray-700 md:my-4">Email</label>
                 <input
-                  type="text"
+                  type="email"
                   value={recipient_email}
                   required
                   onChange={(e) => setEmail(e.target.value)}
                   className="p-2 mb-8 text-gray-700 bg-white border border-gray-300 border-solid rounded min-h-12"
                 />
-                <label className="my-4 text-gray-700">Message</label>
+                <label className="text-gray-700 md:my-4">Message</label>
                 <textarea
                   type="text"
                   value={message}

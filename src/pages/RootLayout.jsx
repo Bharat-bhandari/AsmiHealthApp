@@ -6,13 +6,15 @@ import Footer from "../components/Footer";
 const RootLayout = () => {
   return (
     <>
-      <MainNavigation />
+      <div className="max-w-full overflow-hidden">
+        <MainNavigation />
 
-      <main>
-        <Outlet />
-      </main>
+        <main>
+          <Outlet />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 };

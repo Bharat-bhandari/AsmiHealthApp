@@ -23,17 +23,16 @@ import Chidiya from "../components/Chidiya";
 
 const HomePage = () => {
   return (
-    <div className="container px-[5%] mx-auto">
+    <div className="container px-[5%] mx-auto ">
       <div className="w-full mx-auto max-w-7xl">
-        <div className="py-28">
+        <div className="py-12 md:py-28">
           <div className="flex flex-col items-center ">
-            <Chidiya />
-
+            {/* <Chidiya /> */}
             {/* start section */}
             <section className="relative">
               <div className="w-full max-w-5xl mx-auto text-center">
-                <h1 className="pb-6 font-sans font-semibold text-7xl text-neutral-900">
-                  Transform your mental health journey with Asmi
+                <h1 className="pb-6 font-sans text-5xl font-semibold md:text-7xl text-neutral-900">
+                  Transform your Mental Health Journey with Asmi
                 </h1>
                 <p>
                   Truly Instant, Affordable & Anonymous - Mental Health
@@ -41,47 +40,55 @@ const HomePage = () => {
                 </p>
 
                 <div className="flex justify-center">
-                  <img className=" h-[32rem]" src={peace1} alt="" />
+                  <img className="h-72  md:h-[32rem]" src={peace1} alt="" />
                 </div>
               </div>
               <div className="absolute -z-10 top-[-4rem] bottom-auto right-auto left-[-8rem]">
                 <img
-                  className=" max-h-[17.5rem]"
+                  className="max-h-32 md:max-h-[17.5rem]"
                   src={graphic1}
                   alt="graphic"
                 />
               </div>
               <div className="absolute top-auto bottom-1 right-[-8rem] z-10 left-auto">
                 <img
-                  className=" max-h-[17.5rem]"
+                  className=" max-h-32 md:max-h-[17.5rem]"
                   src={graphic2}
                   alt="graphic"
                 />
               </div>
               <div className="absolute -z-10 top-[-3rem] bottom-auto right-[-7rem] left-auto">
-                <img className=" max-h-[8rem]" src={graphic3} alt="graphic" />
+                <img
+                  className="max-h-20 md:max-h-[8rem]"
+                  src={graphic3}
+                  alt="graphic"
+                />
               </div>
-              <div className="absolute -z-10 top-auto bottom-32 right-auto left-[-2.5rem]">
-                <img className=" max-h-[8rem]" src={graphic4} alt="graphic" />
+              <div className="absolute z-10 top-auto bottom-32 right-auto left-[-2.5rem]">
+                <img
+                  className="max-h-20  md:max-h-[8rem]"
+                  src={graphic4}
+                  alt="graphic"
+                />
               </div>
             </section>
             {/*End of start section */}
 
             {/* Screenshot */}
-            <section className="mt-40">
-              <div className="flex items-center flex-rowm gap-x-8">
+            <section className="mt-6 md:mt-40">
+              <div className="flex flex-row items-center md:gap-x-8">
                 <img
-                  className="w-[18vw] h-full max-w-64"
+                  className="md:w-[18vw] w-[30vw] h-full max-w-64"
                   src={phone3}
                   alt="phone"
                 />
                 <img
-                  className="w-[25vw] h-full max-w-[21.1765rem]"
+                  className="md:w-[25vw] w-[40vw] h-full max-w-[21.1765rem]"
                   src={phone2}
                   alt="phone"
                 />
                 <img
-                  className="w-[18vw] h-full max-w-64"
+                  className="md:w-[18vw] w-[30vw] h-full max-w-64"
                   src={phone1}
                   alt="phone"
                 />
@@ -89,49 +96,49 @@ const HomePage = () => {
             </section>
             {/* End of Screenshot */}
 
-            <div className="py-24 font-sans text-5xl font-semibold text-neutral-900">
+            <div className="py-4 font-sans text-3xl font-semibold text-center md:text-5xl md:py-24 text-neutral-900">
               Powerful tools at your fingertips
             </div>
 
             {/* Asmi App */}
             <section>
-              <div className="gap-x-20 gap-y-16 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr] items-center grid">
+              <div className="grid items-center mt-8 gap-x-20 gap-y-16 md:grid-cols-2 auto-cols-auto">
                 <div className=" w-full max-w-[35rem]">
-                  <div className="text-4xl font-semibold leading-[1.2] font-sans text-neutral-900">
+                  <div className="text-3xl font-semibold leading-[1.2] font-sans text-neutral-900">
                     Asmi App Key Features
                   </div>
 
-                  <ul className="pt-4 pl-6 list-disc">
-                    <li className="p-2">
+                  <ul className="pl-6 list-disc md:pt-4">
+                    <li className="md:p-2">
                       <p>
                         Quick signup. We got rid of those lengthy questions.
                       </p>
                     </li>
-                    <li className="p-2">
+                    <li className="md:p-2">
                       <p>
                         Reveal your identity or remain anonymous, it's your
                         choice.
                       </p>
                     </li>
-                    <li className="p-2">
+                    <li className="md:p-2">
                       <p>
                         You control the Video! You don't want to show your face
                         or see that of your Counsellor, it's your choice.
                       </p>
                     </li>
-                    <li className="p-2">
+                    <li className="md:p-2">
                       <p>
                         Instant, as instant can be! We connect you with the
                         first available Counsellor within 60 seconds.
                       </p>
                     </li>
-                    <li className="p-2">
+                    <li className="md:p-2">
                       <p>
                         Counselling should be accessible for everyone and that's
                         why Asmi is available in regional languages.
                       </p>
                     </li>
-                    <li className="p-2">
+                    <li className="md:p-2">
                       <p>
                         No subscriptions. You pay per session and yes, it's
                         affordable! Also, Selfcare packs are free!
@@ -142,10 +149,10 @@ const HomePage = () => {
 
                 <div className="flex flex-col items-center w-full h-full p-4 rounded-xl bg-neutral-100">
                   <div>
-                    <img className="h-40" src={logo} alt="logo" />
+                    <img className="h-24 md:h-40" src={logo} alt="logo" />
                   </div>
                   <div>
-                    <img className="w-72" src={qrcode} alt="qr" />
+                    <img className="w-64 md:w-72" src={qrcode} alt="qr" />
                   </div>
                   <div>
                     <a
@@ -166,7 +173,7 @@ const HomePage = () => {
 
             {/* Free Yoga */}
             <section className="my-32">
-              <div className="gap-x-20 gap-y-16 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr] items-center grid">
+              <div className="grid items-center md:grid-cols-2 gap-x-20 gap-y-0 auto-cols-auto">
                 <div className="flex flex-col items-center w-full h-full p-4 rounded-xl">
                   <img
                     className="w-full h-full rounded-xl"
@@ -177,8 +184,14 @@ const HomePage = () => {
 
                 <div className=" w-full max-w-[35rem]">
                   <div className="text-4xl font-semibold leading-[1.2] font-sans text-neutral-900 flex flex-col items-center">
-                    <img className="items-center h-64" src={yogaLogo} alt="" />
-                    <div>Get Free Yoga Sessions</div>
+                    <img
+                      className="items-center hidden h-64 md:block "
+                      src={yogaLogo}
+                      alt=""
+                    />
+                    <div className="text-3xl text-center md:text-4xl ">
+                      Get Free Yoga Sessions
+                    </div>
                   </div>
                   <div className="flex flex-col items-center justify-center mt-4">
                     <p className="text-center">
@@ -201,18 +214,18 @@ const HomePage = () => {
 
             {/* GiftCard */}
             <section>
-              <div className="pb-2 font-sans text-4xl font-semibold text-center text-neutral-900">
+              <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
                 Be The Guardian Angel
               </div>
 
-              <h1 className="w-3/4 mx-auto text-center">
+              <h1 className="mx-auto text-center md:w-3/4">
                 Sometimes, our loved ones, keep on suffering in silence. They
                 are simply, unable to take the 'First Step' towards a happy
                 life. YOU can be their Guardian Angel! Recognise and accept your
                 loved one's mental health issues and give them the gift of
                 happiness.
               </h1>
-              <div className="mt-8 flex justify-center transition duration-300 ease-in-out  hover:translate-y-[-1px]">
+              <div className="mt-8 flex justify-center text-center transition duration-300 ease-in-out  hover:translate-y-[-1px]">
                 <NavLink
                   className="p-3 mx-auto font-semibold text-white border border-solid rounded-md bg-primary03 w-fit hover:bg-primary05 border-neutral-300"
                   to={"/gift-card"}
@@ -222,17 +235,17 @@ const HomePage = () => {
                 </NavLink>
               </div>
 
-              <div className="w-[80%] mx-auto">
+              <div className="md:w-[80%]  mx-auto">
                 <img src={gift} alt="counselling" />
               </div>
             </section>
             {/* End of GiftCard */}
 
-            <section className="mx-auto mt-32 ">
+            <section className="mx-auto mt-24 md:mt-32 ">
               <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
                 Still have questions?
               </h4>
-              <p className="py-8 text-xl">
+              <p className="py-8 text-lg text-center md:text-xl">
                 No worries! Mental Wellness is no longer complicated
               </p>
               <div className="flex justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">

@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 p {
-  @apply text-lg leading-6 text-neutral-600;
+  @apply text-base leading-6 md:text-lg text-neutral-600;
 }
 
 .shadow-box {

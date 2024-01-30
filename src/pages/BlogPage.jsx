@@ -45,53 +45,55 @@ const BlogPage = () => {
       {/* Your blog content goes here */}
 
       <div className="w-full mx-auto max-w-7xl">
-        <section className="container py-32">
+        <section className="container mt-16 md:pt-32">
           <div>
             <div className="w-full max-w-2xl">
-              <div className="mb-10 text-5xl font-semibold text-neutral-900">
+              <div className="text-4xl font-semibold md:mb-10 md:text-5xl text-neutral-900">
                 Latest Blogs
               </div>
-              <p className="pb-20 ">
+              <p className="mb-8 md:mb-20 ">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo
                 enim magnam ut. Veritatis officiis quaerat, odit molestias
                 soluta sunt vero.
               </p>
             </div>
-            <section className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-[2%]">
+            <section className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-[2%] pb-8">
               {posts.length > 0 &&
                 posts.map((post) => <Blog key={post._id} {...post} />)}
             </section>
           </div>
         </section>
 
-        {username && (
-          <>
-            <Link
-              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-              to={"/create-blog"}
-            >
-              Create new Blog
-            </Link>
+        <div className="my-16">
+          {username && (
+            <>
+              <Link
+                className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+                to={"/create-blog"}
+              >
+                Create new Blog
+              </Link>
 
-            <a
-              className="inline-block px-4 py-2 ml-4 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
-              onClick={logout}
-            >
-              Logout
-            </a>
-          </>
-        )}
+              <a
+                className="inline-block px-4 py-2 ml-4 text-white rounded-md bg-primary03 hover:bg-primary02 focus:outline-none"
+                onClick={logout}
+              >
+                Logout
+              </a>
+            </>
+          )}
 
-        {!username && (
-          <>
-            <Link
-              to={"/admin-login"}
-              className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary05 focus:outline-none"
-            >
-              Login as Admin
-            </Link>
-          </>
-        )}
+          {!username && (
+            <>
+              <Link
+                to={"/admin-login"}
+                className="inline-block px-4 py-2 text-white rounded-md bg-primary03 hover:bg-primary05 focus:outline-none"
+              >
+                Login as Admin
+              </Link>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
