@@ -2,7 +2,7 @@ import React from "react";
 
 const Chidiya = () => {
   return (
-    <div>
+    <div className="relative">
       <div className="bird-container bird-container-one">
         <div className="bird bird-one"></div>
       </div>

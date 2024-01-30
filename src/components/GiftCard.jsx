@@ -116,7 +116,7 @@ const GiftCard = () => {
       <div className="container px-[5%] mx-auto">
         <div className="w-full mx-auto max-w-7xl py-28">
           <section className="text-xl">
-            <div className="gap-x-20 gap-y-16 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr] items-center grid">
+            <div className="grid items-center md:grid-cols-2 gap-x-20 gap-y-16 auto-cols-auto">
               <div className="flex flex-col items-center w-full h-full rounded-xl">
                 <img src={giftImg} alt="" />
               </div>

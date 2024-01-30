@@ -23,11 +23,34 @@ const HowItWorks = () => {
     <Fragment>
       <div className="container px-[5%] mx-auto">
         <div className="w-full mx-auto max-w-7xl">
-          <img
+          <div className="w-full max-w-5xl mt-8 md:mt-32">
+            <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
+              Asmi App
+            </div>
+            <h1 className="md:text-6xl text-4xl font-semibold text-neutral-900 leading-[1.1] mb-6">
+              Embark on a well-being journey with Asmi.
+            </h1>
+            <p className="mb-4">
+              Your dedicated mental health companion, designed to meet your
+              unique needs.Our user-friendly counseling app ensures
+              accessibility for all, offering instant and affordable support
+              within 60 seconds or any time of the day - the only platform
+              available globally 24/7.
+            </p>
+            <p>
+              Connect effortlessly with seasoned counselors specializing in
+              anxiety, depression, couple counseling, teen counseling, PTSD,
+              ADHD, marital counseling, and LGBTQ+ counseling. Asmi is committed
+              to addressing a diverse range of challenges, providing tailored
+              support to guide you toward a healthier, happier life. Count on
+              Asmi for timely assistance, available whenever you need it most.
+            </p>
+          </div>
+          {/* <img
             className="relative hidden left-40 top-20 -z-10 md:block"
             src={g3}
             alt=""
-          />
+          /> */}
           <div>
             <div className="flex flex-row items-center md:gap-12 md:justify-end ">
               <img
@@ -49,12 +72,12 @@ const HowItWorks = () => {
                 </div>
               </div>
               <div className="">
-                <img className="w-auto h-full" src={h1w1} alt="h1w1" />
+                <img className="w-[25rem] md:w-auto" src={h1w1} alt="h1w1" />
               </div>
             </div>
             <div className="flex flex-row items-center justify-end md:gap-12">
               <div className="">
-                <img className=" w-[45rem] md:w-auto" src={h1w2} alt="" />
+                <img className=" w-[48rem] md:w-auto" src={h1w2} alt="" />
               </div>
               <div>
                 <img
@@ -76,7 +99,7 @@ const HowItWorks = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row items-center md:justify-end md:gap-12">
+            <div className="flex flex-row items-center mt-4 md:justify-end md:gap-12">
               <img
                 src={g1}
                 className="relative hidden md:block left-40 top-20 -z-10"
@@ -84,7 +107,7 @@ const HowItWorks = () => {
               />
               <div className="max-w-[30rem] text-base">
                 <div className="mb-2 font-semibold md:text-xl">
-                  No Subscriptions. Not expensive.{" "}
+                  No Subscriptions. Not expensive.
                 </div>
 
                 <div className="mb-2 font-semibold md:text-xl">
@@ -98,7 +121,7 @@ const HowItWorks = () => {
                 </div>
               </div>
               <div className="imgblock">
-                <img className="w-auto h-full" src={h1w3} alt="" />
+                <img className=" w-[30rem] md:w-auto" src={h1w3} alt="" />
               </div>
             </div>
           </div>
@@ -106,22 +129,22 @@ const HowItWorks = () => {
 
         {/* Asmi App */}
         <section className="mb-24">
-          <div className="">
-            <div className="flex md:flex-row flex-col  items-center justify-center w-[70%] mx-auto h-full gap-12  py-12 px-8 rounded-xl bg-neutral-100">
+          <div>
+            <div className="flex md:flex-row flex-col items-center justify-center w-[70%] mx-auto h-full md:gap-12 md:py-12 px-8 rounded-xl bg-neutral-1">
               <div>
                 <img className="w-72" src={qrcode} alt="qr" />
               </div>
               <div>
-                <div className="font-sans text-4xl font-semibold text-center">
+                <div className="font-sans text-3xl font-semibold text-center md:text-4xl">
                   Download Now
                 </div>
                 <a
                   href="https://play.google.com/store/apps/details?id=com.anjanajyoti.asmi"
                   target="_blank"
                 >
-                  <div className="items-center w-fit">
+                  <div className="flex justify-center">
                     <img
-                      className="h-12 mt-6 mb-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105"
+                      className="h-12 mt-2 mb-2 transition duration-300 ease-in-out md:mt-6 hover:-translate-y-1 hover:scale-105"
                       src={play}
                       alt="play"
                     />
@@ -134,7 +157,7 @@ const HowItWorks = () => {
         {/* End of Asmi App */}
 
         {/* Free Yoga */}
-        <section className="my-32">
+        <section className="mb-20 md:my-32">
           <div className="grid items-center md:grid-cols-2 gap-x-20 gap-y-0 auto-cols-auto">
             <div className="flex flex-col items-center w-full h-full p-4 rounded-xl">
               <img className="w-full h-full rounded-xl" src={yoga} alt="yoga" />
@@ -153,8 +176,8 @@ const HowItWorks = () => {
               </div>
               <div className="flex flex-col items-center justify-center mt-4">
                 <p className="text-center">
-                  Sign Up For Free Yoga Sessions During At Multiple Times During
-                  the Day!
+                  Enjoy 0ur Daily Free Online Yoga Sessions, offered multiple
+                  times during both mornings and evenings.
                 </p>
                 <div className="flex mt-4 justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
                   <NavLink
@@ -171,7 +194,7 @@ const HowItWorks = () => {
         {/* End of Free Yoga */}
 
         {/* GiftCard */}
-        <section>
+        <section className="pb-24">
           <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
             Be The Guardian Angel
           </div>
@@ -192,7 +215,7 @@ const HowItWorks = () => {
             </NavLink>
           </div>
 
-          <div className="md:w-[80%]  mx-auto mb-16">
+          <div className="md:w-[80%]  mx-auto ">
             <img src={gift} alt="counselling" />
           </div>
         </section>

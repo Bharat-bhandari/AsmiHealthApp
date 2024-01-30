@@ -20,23 +20,25 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import aboutusimg2 from "../assets/image/aboutusimg2.png";
 import { NavLink } from "react-router-dom";
 import Chidiya from "../components/Chidiya";
+import Carousal from "../components/Carousal";
 
 const HomePage = () => {
   return (
     <div className="container px-[5%] mx-auto ">
+      <Chidiya />
+
       <div className="w-full mx-auto max-w-7xl">
         <div className="py-12 md:py-28">
           <div className="flex flex-col items-center ">
-            {/* <Chidiya /> */}
             {/* start section */}
             <section className="relative">
               <div className="w-full max-w-5xl mx-auto text-center">
                 <h1 className="pb-6 font-sans text-5xl font-semibold md:text-7xl text-neutral-900">
-                  Transform your Mental Health Journey with Asmi
+                  Transform Your Mental Health Journey With Asmi
                 </h1>
                 <p>
                   Truly Instant, Affordable & Anonymous - Mental Health
-                  Counselling
+                  Counselling App
                 </p>
 
                 <div className="flex justify-center">
@@ -72,6 +74,16 @@ const HomePage = () => {
                 />
               </div>
             </section>
+
+            <div>
+              <h1 className="max-w-4xl mt-4 font-sans text-center md:mt-12 md:text-2xl">
+                Asmi provides the best Online Counseling in India and around the
+                globe. Consult Online Psychologists and counselors, mental
+                health experts via video call within 60 seconds. Experience the
+                best in online psychologist consultations – affordable, Instant,
+                and available 24/7
+              </h1>
+            </div>
             {/*End of start section */}
 
             {/* Screenshot */}
@@ -195,8 +207,8 @@ const HomePage = () => {
                   </div>
                   <div className="flex flex-col items-center justify-center mt-4">
                     <p className="text-center">
-                      Sign Up For Free Yoga Sessions During At Multiple Times
-                      During the Day!
+                      Enjoy 0ur Daily Free Online Yoga Sessions, offered
+                      multiple times during both mornings and evenings.
                     </p>
                     <div className="flex mt-4 justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
                       <NavLink
@@ -240,6 +252,11 @@ const HomePage = () => {
               </div>
             </section>
             {/* End of GiftCard */}
+
+            {/* Carousal */}
+
+            <Carousal />
+            {/*End of Carousal */}
 
             <section className="mx-auto mt-24 md:mt-32 ">
               <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">

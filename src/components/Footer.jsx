@@ -3,6 +3,7 @@ import logo from "../assets/image/logo.png";
 import { TiSocialLinkedin } from "react-icons/ti";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -22,7 +23,8 @@ const Footer = () => {
                       />
                     </div>
                     <div className="font-sans text-3xl font-medium leading-normal ">
-                      Download Asmi App now and Get Started Immediately
+                      Download the app now and start your journey to mental
+                      well-being
                     </div>
                   </div>
                   <div className="flex mt-2 gap-x-3">
@@ -102,15 +104,24 @@ const Footer = () => {
                           Careers
                         </div>
                       </div>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <NavLink
+                        to={"/psychologyinternship"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
                         Psychology-Internship
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      </NavLink>
+                      <NavLink
+                        to={"/marketinginternship"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
                         Marketing-Internship
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        Contact us
-                      </a>
+                      </NavLink>
+                      <NavLink
+                        to={"/careers"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        Careers
+                      </NavLink>
                     </div>
                   </div>
                 </div>

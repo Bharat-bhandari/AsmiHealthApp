@@ -50,7 +50,6 @@ const counselorNames = [
   "Manjula",
   "Manvi Sodhi",
   "Megha",
-  "Mohit Verma",
   "Muskan Tikoo",
   "Naincy",
   "Namrata",
@@ -85,7 +84,6 @@ const counselorImages = [
   ManjulaImage,
   ManviSodhiImage,
   MeghaImage,
-  MohitVermaImage,
   MuskanTikooImage,
   NaincyImage,
   NamrataImage,
@@ -111,10 +109,10 @@ const CounselorPage = () => {
       <div className="w-full mx-auto max-w-7xl">
         <div className="w-full max-w-5xl mt-8 md:mt-32">
           <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
-            Counsellors
+            Counselors
           </div>
           <h1 className="md:text-6xl text-4xl font-semibold text-neutral-900 leading-[1.1] md:mb-6">
-            Meet Our Counsellors
+            Meet Our Counselors
           </h1>
           <p className="mb-24">
             At Asmi's Mental Health wellness, our psychologists possess a unique

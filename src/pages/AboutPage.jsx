@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { NavLink } from "react-router-dom";
 
 import aboutusimg1 from "../assets/image/team/uhf.png";
 import aboutusimg2 from "../assets/image/team/akm.png";
@@ -23,26 +24,38 @@ const AboutPage = () => {
       <section>
         <div className="px-[5%]">
           <div className="w-full max-w-screen-xl mx-auto ">
-            <div className="py-40">
-              <div className="gap-x-20 gap-y-16 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr] items-center grid">
+            <div className="py-32">
+              <div className="grid items-center gap-y-16 md:grid-cols-2 auto-cols-auto">
                 <div className=" w-full max-w-[35rem]">
                   <div className="bg-neutral-100  rounded px-2 py-1  text-neutral-900 text-sm font-semibold leading-[1.4] inline-block">
                     Values
                   </div>
                   <div className="p-2 "></div>
-                  <div
-                    className="text-5xl font-semibold leading-[1.2]
-  font-family: Clashdisplay variable, sans-serif text-neutral-900"
-                  >
+                  <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
                     How it started
                   </div>
-                  <div className="p-4 "></div>
-                  <p className="my-0 text-lg text-neutral-600">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Tempore quos voluptas quidem, nulla dolores quia a debitis
-                    quisquam reprehenderit eligendi.
+                  <div className="py-4 "></div>
+                  <p className="pb-4 my-0 text-lg text-neutral-600">
+                    Asmi™, a visionary initiative, was conceived after Our
+                    Founder, Ujjwal comprehensively understood the complexities
+                    of mental health support. The urgency for instant and
+                    affordable therapy became starkly apparent during the
+                    COVID-19 pandemic. This poignant experience became the
+                    impetus for the creation of Asmi™, a platform born out of
+                    the desire to alleviate the pervasive struggles surrounding
+                    mental health in India and across the globe.
                   </p>
-                  <div className="p-12"></div>
+                  <p className="my-0 text-lg text-neutral-600">
+                    Countless people, face myriad obstacles that deter them from
+                    seeking the support they desperately need. Recognizing the
+                    multifaceted challenges individuals encounter on their
+                    journey to mental well-being, Asmi™ was envisioned as a
+                    beacon of hope—a testament to resilience and a response to
+                    the pressing need for accessible mental health support.
+                    Furthermore, no call for support should go unanswered.
+                  </p>
+
+                  {/* <div className="p-12"></div>
                   <div className="grid gap-x-6 gap-y-6 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr]  py-2">
                     <div className="flex gap-x-6">
                       <div className="w-7 h-7 min-h-[1.75rem] min-w-[1.75rem] bg-primary04 text-white flex-col justify-center items-center flex rounded-[16rem]">
@@ -78,24 +91,24 @@ const AboutPage = () => {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="p-4"></div>
                   <div className="flex items-center justify-start gap-x-4 gap-y-4 wrap">
-                    <a
-                      href="/contact"
+                    <NavLink
+                      to={"/contact-us"}
                       className="gap-x-1 text-[color:var(--neutral-900)] whitespace-nowrap justify-start items-center font-semibold no-underline transition-[color] duration-[0.2s] flex"
                     >
                       <div>Contact Us</div>
                       <div className="flex items-center justify-center flex-none w-5 h-5 ">
                         <FaArrowRightLong />
                       </div>
-                    </a>
+                    </NavLink>
                   </div>
                 </div>
 
                 <div>
                   <img
-                    className="inline-block max-w-full align-middle border-0 min-h-[35rem] object-cover rounded-2xl"
+                    className="inline-block object-cover w-[90%] align-middle border-0 rounded-2xl"
                     src={auimage1}
                     alt=""
                   />
@@ -117,30 +130,27 @@ const AboutPage = () => {
                     Meet the Team
                   </div>
                   <div className="p-4 "></div>
-                  <div
-                    className="text-white  text-5xl font-semibold leading-[1.2];
-  font-family: Clashdisplay variable, sans-serif"
-                  >
+                  <div className="text-white  text-5xl font-semibold leading-[1.2] font-sans">
                     People Behind ASMI
                   </div>
                   <div className="p-6 "></div>
                   <p className=" text-white  mt-0 mb-2.5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                    earum?
+                    Fueled by an unwavering commitment to positive change,
+                    Ujjwal assembled a dynamic team of passionate individuals in
+                    2023, united by a shared enthusiasm to redefine online
+                    counseling. This diverse group, embracing varied backgrounds
+                    and perspectives, is the driving force behind Asmi™.
                   </p>
                 </div>
               </div>
               <div className="p-20"></div>
               <div>
-                <div
-                  className=" gap-x-8 gap-y-8 grid-rows-[auto] grid-cols-[repeat(auto-fit,minmax(23rem,23rem))] auto-cols-[1fr] justify-items-center grid
-  align-items:start"
-                >
+                <div className="grid md:grid-cols-2 gap-x-8 gap-y-8 auto-cols-auto justify-items-center ">
                   <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg1}
                           alt=""
                         />
@@ -160,7 +170,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg2}
                           alt=""
                         />
@@ -180,7 +190,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg3}
                           alt=""
                         />
@@ -201,7 +211,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg4}
                           alt=""
                         />
@@ -221,7 +231,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg5}
                           alt=""
                         />
@@ -241,7 +251,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg6}
                           alt=""
                         />
@@ -261,7 +271,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg7}
                           alt=""
                         />
@@ -283,7 +293,7 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
                           src={aboutusimg8}
                           alt=""
                         />
@@ -303,8 +313,8 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg9}
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg10}
                           alt=""
                         />
                       </div>
@@ -312,6 +322,7 @@ const AboutPage = () => {
                       <div className="text-xl font-semibold">
                         Shivangi Kapoor
                       </div>
+
                       <div className="text-sm">Psychologist</div>
                       <div className="p-4 "></div>
                       <p className="mt-0 mb-0 text-sm text-white">
@@ -328,8 +339,8 @@ const AboutPage = () => {
                     <div>
                       <div>
                         <img
-                          className=" w-20 h-20 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg10}
+                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                          src={aboutusimg9}
                           alt=""
                         />
                       </div>
@@ -361,7 +372,7 @@ const AboutPage = () => {
         <div className="px-[5%]">
           <div className="w-full max-w-screen-xl mx-auto ">
             <div className="py-40">
-              <div className="gap-x-20 gap-y-16 grid-rows-[auto] grid-cols-[1fr_1fr] auto-cols-[1fr] items-center grid">
+              <div className="grid items-center md:grid-cols-2 gap-x-20 gap-y-16 auto-cols-auto">
                 <div>
                   <img
                     className="inline-block max-w-full align-middle border-0 min-h-[35rem] object-cover rounded-2xl"

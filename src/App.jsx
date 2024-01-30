@@ -10,6 +10,10 @@ import HowItWorks from "./pages/HowItWorks";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import CreateBlog from "./pages/CreateBlog";
 import GiftCard from "./components/GiftCard";
+import Assessment from "./components/Assessment";
+import PsychoIntern from "./components/PsychoIntern";
+import MarketingIntern from "./components/MarketingIntern";
+import Careers from "./components/Careers";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,10 @@ const router = createBrowserRouter([
       { path: "/admin-login", element: <AdminLoginPage /> },
       { path: "/create-blog", element: <CreateBlog /> },
       { path: "/gift-card", element: <GiftCard /> },
+      { path: "/assessment", element: <Assessment /> },
+      { path: "/psychologyinternship", element: <PsychoIntern /> },
+      { path: "/marketinginternship", element: <MarketingIntern /> },
+      { path: "/careers", element: <Careers /> },
     ],
   },
 ]);
