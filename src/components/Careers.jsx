@@ -1,5 +1,5 @@
 import { useState, Fragment } from "react";
-import "./Careers.css";
+
 const Careers = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -11,6 +11,7 @@ const Careers = () => {
   const [universityName, setUniversityName] = useState("");
   const [yog, setYog] = useState("");
   const [lanKnown, setLanKnown] = useState("");
+  const [degree, setDegree] = useState("");
 
   const [Rci, setRci] = useState("");
   const [noyPractice, setNoyPractice] = useState("");
@@ -20,15 +21,43 @@ const Careers = () => {
   const [noh, setNoh] = useState("");
   const [available, setAvailable] = useState("");
   const [specialization, setSpecialization] = useState("");
+  const [cv, setCv] = useState("");
 
   const sendMail = async (event) => {
+    event.preventDefault();
+
+    const careerData = new FormData();
+
+    // Append personal information
+    careerData.append("firstName", firstName);
+    careerData.append("lastName", lastName);
+    careerData.append("email", email);
+    careerData.append("phoneNumber", phoneNumber);
+    careerData.append("address", address);
+
+    // Append educational information
+    careerData.append("highDegree", highDegree);
+    careerData.append("universityName", universityName);
+    careerData.append("yog", yog);
+    careerData.append("lanKnown", lanKnown);
+    careerData.append("degree", degree[0]);
+
+    // Append professional information
+    careerData.append("Rci", Rci);
+    careerData.append("noyPractice", noyPractice);
+    careerData.append("expRes", expRes);
+    careerData.append("expText", expText);
+    careerData.append("shareSession", shareSession);
+    careerData.append("noh", noh);
+    careerData.append("available", available);
+    careerData.append("specialization", specialization);
+    careerData.append("cv", cv[0]);
+
     try {
       const response = await fetch("http://localhost:4000/send-career", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
+
+        body: careerData,
       });
 
       if (!response.ok) {
@@ -44,59 +73,74 @@ const Careers = () => {
 
   return (
     <Fragment>
-      <div className="Careersblock">
-        <div className="mainheader">
+      <div className="m-8 sm:m-20 ">
+        <div className="mb-1 text-2xl sm:text-3xl sm:font-medium">
           Application - Psychologist (Independent/Remote)
         </div>
-        <div className="subheader">
+        <div className="mb-8 font-normal">
           On Play Store currently, application requires an Android device.
         </div>
         <div className="formblock">
-          <div className="formheader">Asmi - Psychology Internship Form</div>
+          <div className="text-2xl">Asmi - Psychology Internship Form</div>
           <form onSubmit={sendMail}>
-            <div className="personalinfo">
-              <div>Personal Information</div>
+            <div className="mt-4 mb-2 ">
+              <div className="text-xl">Personal Information</div>
               <div className="piformelement formelement">
-                <div>
-                  <label>FirstName*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    FirstName*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={firstName}
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>LastName*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    LastName*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={lastName}
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Email*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Email*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="email"
                     value={email}
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>PhoneNo*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    PhoneNo*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={phoneNumber}
-                    placeholder="enter mobile-no with countrycode"
+                    placeholder="Enter Mobile-No with CountryCode"
                     required
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Address</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Address
+                  </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -106,91 +150,132 @@ const Careers = () => {
                 </div>
               </div>
             </div>
-            <div className="educationalbackground">
-              <div>Educational Background</div>
+            <div className="mt-4 mb-2">
+              <div className="text-xl">Educational Background</div>
               <div className="edformelement formelement">
-                <div>
-                  <label> High Degree Earned*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    High Degree Earned*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={highDegree}
                     required
                     onChange={(e) => setHighDegree(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label> Name of University*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    Name of University*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={universityName}
                     required
                     onChange={(e) => setUniversityName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label> Year of Graduation*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    Year of Graduation*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={yog}
                     required
                     onChange={(e) => setYog(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label> Languages Known</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    Languages Known
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={lanKnown}
                     required
                     onChange={(e) => setLanKnown(e.target.value)}
                   />
                 </div>
-                {/* <DegreeUploader /> */}
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Upload Degree/Provisional
+                  </label>
+                  <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
+                    type="file"
+                    required
+                    onChange={(e) => setDegree(e.target.files)}
+                  />
+                </div>
               </div>
             </div>
-            <div className="professionalbackground">
-              <div>Professional Credintials</div>
+            <div className="mt-4 mb-2">
+              <div className="text-xl">Professional Credintials</div>
               <div className="pdformelement formelement">
-                <div>
-                  <label> RCI Number</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    RCI Number
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={Rci}
                     onChange={(e) => setRci(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label> No. of years practising as a Psycholigst*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    {" "}
+                    No. of years practising as a Psycholigst*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={noyPractice}
                     required
                     onChange={(e) => setNoyPractice(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Do you have experience in Online Counselling?</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Do you have experience in Online Counselling?
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={expRes}
                     required
                     onChange={(e) => setExpRes(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     if yes, please describe your experience in online
                     counselling
                   </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={expText}
                     onChange={(e) => setExpText(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Share a challenging counselling session*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Share a challenging counselling session*
+                  </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={shareSession}
                     placeholder="without disclosing confidential information, describe a session that was challenging"
@@ -198,11 +283,12 @@ const Careers = () => {
                     onChange={(e) => setshareSession(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     How many hours a day can you dedicate to our App?*
                   </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={noh}
                     placeholder=""
@@ -210,11 +296,12 @@ const Careers = () => {
                     onChange={(e) => setNoh(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     Are you available for online sessions during night hours?*
                   </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={available}
                     placeholder="Fee for night hour is more than day fee"
@@ -222,9 +309,12 @@ const Careers = () => {
                     onChange={(e) => setAvailable(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Please list your specialisations*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1 ">
+                    Please list your specialisations*
+                  </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={specialization}
                     placeholder="Queer, Couple, Adolence etc."
@@ -233,24 +323,42 @@ const Careers = () => {
                   />
                 </div>
                 {/* <CvUploader /> */}
+
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Upload Degree/Provisional
+                  </label>
+                  <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
+                    type="file"
+                    required
+                    onChange={(e) => setCv(e.target.files)}
+                  />
+                </div>
               </div>
             </div>
-            <div className="Submission">
-              <div>
-                <input type="checkbox" required />
+            <div className="mt-4 mb-2">
+              <div className="mt-3 mb-1">
+                <input className="mr-2" type="checkbox" required />
                 <label>
                   I understand that I am applying for a Independent Contracter
                   Position
                 </label>
               </div>
-              <div>
-                <input type="checkbox" required />
+              <div className="mt-3 mb-1">
+                <input className="mr-2" type="checkbox" required />
                 <label>
                   I give my consent to Asmi team to contact me through SMS,
                   Whatsapp,Email regarding this application
                 </label>
               </div>
-              <input type="button" value="Submit" />
+              <div className="mt-3 mb-1">
+                <input
+                  className="bg-[#f35637] text-white px-4 py-1 rounded-md"
+                  type="submit"
+                  value="Submit"
+                />
+              </div>
             </div>
           </form>
         </div>

@@ -25,53 +25,9 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 // end of middlewares
 
-app.get("/test", (req, res) => {
-  res.json("test ok");
-});
-
-// testmail
-
-function testEmail(attachment) {
-  return new Promise((resolve, reject) => {
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    const mail_configs = {
-      from: process.env.EMAIL_USER,
-      to: "bharatbhandari0302@gmail.com",
-      subject: "Hello world",
-      text: "helloo",
-      attachments: [{ filename: "file.jpg", content: attachment }],
-    };
-    transporter.sendMail(mail_configs, function (error, info) {
-      if (error) {
-        console.log(error);
-        return reject({ message: `An error has occured` });
-      }
-      return resolve({ message: "Email sent succesfuly" });
-    });
-  });
-}
-
-app.post("/testmail", (req, res) => {
-  // res.json("test ok");
-
-  const { attachment } = req.body;
-
-  console.log("Somebody just mial hit me");
-  console.log(req.body);
-  console.log(attachment);
-  testEmail(attachment)
-    .then((response) => res.send(response.message))
-    .catch((error) => res.status(500).send(error.message));
-});
-
-// testmail
+// app.get("/test", (req, res) => {
+//   res.json("test ok");
+// });
 
 app.use(authRoutes);
 app.use(postRoutes);

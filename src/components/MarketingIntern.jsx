@@ -1,5 +1,4 @@
 import { useState, Fragment } from "react";
-
 const MarketingIntern = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -40,10 +39,10 @@ const MarketingIntern = () => {
 
   return (
     <Fragment>
-      <div>
+      <div className="m-8 sm:m-20">
         <div className="programdetail-block">
-          <div>About Us</div>
-          <p>
+          <div className="mb-4 text-4xl font-medium">About Us</div>
+          <p className="mb-3">
             Asmi™, a product in development, is India’s first mobile application
             that will provide Mental Health Counselling Instantly, enabling a
             User to connect to a qualified counsellor within a matter of
@@ -52,62 +51,68 @@ const MarketingIntern = () => {
             session low and affordable. Asmi™ is a brand of Anjanajyoti
             Healthtech Private Limited.
           </p>
-          <div>Internship Overview</div>
-          <p>
+          <div className="text-2xl font-normal">Internship Overview</div>
+          <p className="mb-3">
             Gain hands-on experience in social media, working alongside our team
             to create engaging content, analyse performance, and contribute to
             strategic campaigns.
           </p>
-          <div>What do we expect from you?</div>
-          <p>
+          <div className="text-2xl font-normal">
+            What do we expect from you?
+          </div>
+          <p className="mb-3">
             Your innovative minds will craft engaging visual short format
             content aligned with our brand voice. Dive into the realm of social
             media, community interaction, and research, aiding us in campaign
             development and implementation.
           </p>
-          <div>What do you gain?</div>
-          <p>
-            As an intern in our Marketing Internship program, you'll be
+          <div className="text-2xl font-normal">What do you gain?</div>
+          <p className="mb-3">
+            As an intern in our Marketing Internship program, you&apos;ll be
             compensated with a stipend while gaining invaluable hands-on
-            experience in the ever-evolving social media landscape. You'll work
-            closely with experienced professionals, gaining insights into
+            experience in the ever-evolving social media landscape. You&apos;ll
+            work closely with experienced professionals, gaining insights into
             industry best practices and developing your own skills in social
             media marketing and content creation. Upon successful completion of
-            the program, you'll receive a certificate of completion, further
-            enhancing your credentials and demonstrating your expertise to
-            potential employers.
+            the program, you&apos;ll receive a certificate of completion,
+            further enhancing your credentials and demonstrating your expertise
+            to potential employers.
           </p>
-          <div>Recognition and Rewards</div>
-          <p>
-            We recognize excellence and award a "Best Performing Intern" title
-            each month to the intern who demonstrates exceptional dedication,
-            creativity, and contribution to the team's success.
+          <div className="text-2xl font-normal">Recognition and Rewards</div>
+          <p className="mb-3">
+            We recognize excellence and award a &quot;Best Performing
+            Intern&quot; title each month to the intern who demonstrates
+            exceptional dedication, creativity, and contribution to the
+            team&apos;s success.
           </p>
-          <div>Work Schedule and Expectations</div>
-          <p>
+          <div className="text-2xl font-normal">
+            Work Schedule and Expectations
+          </div>
+          <p className="mb-3">
             We prioritize flexibility and empower our interns to manage their
             time effectively. You will primarily work part-time hours remotely,
             with on-site presence scheduled in accordance with your availability
-            and our company's needs. This arrangement will allow you to balance
-            your internship responsibilities with other commitments. Throughout
-            the program, clear guidelines and expectations will be provided to
-            ensure the program's smooth and productive execution.
+            and our company&apos;s needs. This arrangement will allow you to
+            balance your internship responsibilities with other commitments.
+            Throughout the program, clear guidelines and expectations will be
+            provided to ensure the program&apos;s smooth and productive
+            execution.
           </p>
-          <div>Orientation and Support</div>
-          <p>
+          <div className="text-2xl font-normal">Orientation and Support</div>
+          <p className="mb-3">
             We will conduct a virtual orientation to introduce you to our
             company culture, social media strategy, and team members. Throughout
             your internship, expect constant communication, guidance, and advice
             to foster a supportive learning environment.
           </p>
-          <div>Your Growth, Our Success</div>
-          <p>
+          <div className="text-2xl font-normal">Your Growth, Our Success</div>
+          <p className="mb-3">
             This internship isn't just about what you'll contribute to us; it's
             about what we'll offer you in return. The experience gained here
             will be a stepping stone towards your future success.
           </p>
-          <div>Eligibility:</div>
-          <p>
+          <div className="text-2xl font-normal">Eligibility:</div>
+          <p className="mb-3">
             Must be studying "Full Time" in a recognised college.
             <br />
             Preferred Courses: Psychology, English, Sociology, Journalism,
@@ -119,63 +124,77 @@ const MarketingIntern = () => {
             Strong communication skills and a good command of the English
             language is an essential requirement.
           </p>
-          <div>Time Commitments (Per Week):</div>
-          <p>
+          <div className="text-2xl font-normal">
+            Time Commitments (Per Week):
+          </div>
+          <p className="mb-3">
             Part Time On-site 20 hours week, Complete flexibility prior and
             during exams.
           </p>
-          <div>Remuneration (Per Month):</div>
-          <p>Stipend & Allowances</p>
-          <div>Upon Completion:</div>
-          <p>
+          <div className="text-2xl font-normal">Remuneration (Per Month):</div>
+          <p className="mb-3">Stipend & Allowances</p>
+          <div className="text-2xl font-normal">Upon Completion:</div>
+          <p className="mb-3">
             An opportunity to convert the internship to a full time job.
             <br />
             Completion Certificate
             <br />
             Letter of Recommendation
           </p>
-          <div>Duration:</div>
-          <p>3 months (Option to convert into Full Time)</p>
-          <div>Application Deadline:</div>
-          <p>No deadline. It's an ongoing open opportunity.</p>
+          <div className="text-2xl font-normal">Duration:</div>
+          <p className="mb-3">3 months (Option to convert into Full Time)</p>
+          <div className="text-2xl font-normal">Application Deadline:</div>
+          <p className="mb-3">No deadline. It's an ongoing open opportunity.</p>
         </div>
 
-        <div className="formblock">
-          <div className="formheader">Asmi - Marketing Internship Form</div>
+        <div className="mt-[5rem]">
+          <div className="text-3xl">Asmi - Marketing Internship Form</div>
           <form onSubmit={sendMail}>
-            <div className="personalinfo">
-              <div>Personal Information</div>
+            <div className="mt-4 mb-2">
+              <div className="text-xl">Personal Information</div>
               <div className="piformelement formelement">
-                <div>
-                  <label>FirstName*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    FirstName*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={firstName}
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>LastName*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    LastName*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={lastName}
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Email*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Email*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="email"
                     value={email}
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>PhoneNo*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    PhoneNo*
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={phoneNumber}
                     placeholder="enter mobile-no with countrycode"
@@ -183,9 +202,12 @@ const MarketingIntern = () => {
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label>Address</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Address
+                  </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -193,9 +215,12 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>Name of University</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Name of University
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={universityName}
                     onChange={(e) => setUniversityName(e.target.value)}
@@ -203,9 +228,12 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>Name of College</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Name of College
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={collegeName}
                     onChange={(e) => setCollegeName(e.target.value)}
@@ -213,9 +241,12 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>Dept, Course & Semester</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    Dept, Course & Semester
+                  </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={dcs}
                     onChange={(e) => setDcs(e.target.value)}
@@ -223,54 +254,67 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="mt-3 mb-1">
                   <fieldset>
                     <legend>Type of Internship*</legend>
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="FullTimeOnsite"
                         onChange={(e) => setInternpref(e.target.value)}
                       />
-                      <label>FullTime Onsite</label>
+                      <label className=" text-[#374151] pr-8 pb-1">
+                        FullTime Onsite
+                      </label>
                     </div>
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="FullTimeRemote"
                         onChange={(e) => setInternpref(e.target.value)}
                       />
-                      <label>FullTime Remote</label>
+                      <label className=" text-[#374151] pr-8 pb-1">
+                        FullTime Remote
+                      </label>
                     </div>
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="PartTime Onsite"
                         onChange={(e) => setInternpref(e.target.value)}
                       />
-                      <label>PartTime Onsite</label>
+                      <label className=" text-[#374151] pr-8 pb-1">
+                        PartTime Onsite
+                      </label>
                     </div>
 
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="PartTimeRemote"
                         onChange={(e) => setInternpref(e.target.value)}
                       />
-                      <label>PartTime Remote</label>
+                      <label className="text-[#374151] pr-8 pb-1">
+                        PartTime Remote
+                      </label>
                     </div>
                   </fieldset>
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     In case of Part Time, how many hours/day can you devote to
                     the Internship?
                   </label>
-                  <text
+                  <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={noh}
                     onChange={(e) => setNoh(e.target.value)}
@@ -278,11 +322,12 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     Are you a member of Societies in your College or Uni?
                   </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={qnMember}
                     onChange={(e) => setQnMember(e.target.value)}
@@ -290,12 +335,13 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     Your views on Social Media and its importance in Marketing
                     and Branding*
                   </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={viewSm}
                     onChange={(e) => setViewSm(e.target.value)}
@@ -303,35 +349,40 @@ const MarketingIntern = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className="mt-3 mb-1">
                   <fieldset>
                     <legend>
                       Have you created any Social Media Video Content?
                     </legend>
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="No"
                         onChange={(e) => setSmc(e.target.value)}
                       />
-                      <label>Yes</label>
+                      <label className=" text-[#374151] pr-8 pb-1">Yes</label>
                     </div>
 
                     <div>
                       <input
+                        className="mr-2"
                         type="radio"
                         name="answer"
                         value="Yes"
                         onChange={(e) => setSmc(e.target.value)}
                       />
-                      <label>No</label>
+                      <label className=" text-[#374151] pr-8 pb-1">No</label>
                     </div>
                   </fieldset>
                 </div>
-                <div>
-                  <label>If Yes, please provide links to some content*</label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
+                    If Yes, please provide links to some content*
+                  </label>
                   <textarea
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={smcl}
                     onChange={(e) => setSmcl(e.target.value)}
@@ -340,11 +391,12 @@ const MarketingIntern = () => {
                   />
                 </div>
 
-                <div>
-                  <label>
+                <div className="mt-3 mb-1">
+                  <label className="block text-[#374151] pr-8 pb-1">
                     How many days per weel can you come to the office?
                   </label>
                   <input
+                    className="sm:w-[30rem] pr-2 border border-[#d1d5db] w-max-[20rem]"
                     type="text"
                     value={dpw}
                     onChange={(e) => setDpw(e.target.value)}
@@ -354,31 +406,36 @@ const MarketingIntern = () => {
               </div>
             </div>
 
-            <div className="Submission">
-              <div>
-                <input type="checkbox" required />
+            <div className="mt-4 mb-2">
+              <div className="mt-3 mb-1">
+                <input className="mr-2" type="checkbox" required />
                 <label>
                   I understand and accept the Terms &amp; Conditions of
                   application, data and its usage.
                 </label>
               </div>
-              <div>
-                <input type="checkbox" required />
+              <div className="mt-3 mb-1">
+                <input className="mr-2" type="checkbox" required />
                 <label>
                   I give my consent for the Company and its employees to contact
                   me regarding this intership opporunity.
                 </label>
               </div>
 
-              <input type="button" value="Submit" />
+              <input
+                className="bg-[#f35637] text-white px-4 py-1 rounded-md"
+                type="submit"
+                value="Submit"
+              />
             </div>
           </form>
         </div>
-        <div className="generalinfo-block">
-          <div className="generalinfo-header">General Information</div>
-          <div>Eligibility:</div>
-          <p>
-            Must be studying "Full-Time" with a recognised college.
+
+        <div className="mt-[5rem]">
+          <div className="text-3xl mb-[1rem]">General Information</div>
+          <div className="text-2xl font-normal">Eligibility:</div>
+          <p className="mb-3">
+            Must be studying &quot;Full-Time&quot; with a recognised college.
             <br />
             Preferred Courses: Psychology, English, Sociology, Journalism,
             Economics and/or History. Batch/Years: All batches/years, that is,
@@ -387,20 +444,20 @@ const MarketingIntern = () => {
             Strong communication skills and a good command of the English
             language is an essential requirement.
           </p>
-          <div>Remuneration (Per Month):</div>
-          <p>Paid along with allowances.</p>
-          <div>Upon Completion:</div>
-          <p>
+          <div className="text-2xl font-normal">Remuneration (Per Month):</div>
+          <p className="mb-3">Paid along with allowances.</p>
+          <div className="text-2xl font-normal">Upon Completion:</div>
+          <p className="mb-3">
             An opportunity to convert the internship to a full/part time job.
             <br />
             Completion Certificate
             <br />
             Letter of Recommendation
           </p>
-          <div>Duration:</div>
-          <p>3 months</p>
-          <div>Application Deadline:</div>
-          <p>No deadline. It's an ongoing open opportunity.</p>
+          <div className="text-2xl font-normal">Duration:</div>
+          <p className="mb-3">3 months</p>
+          <div className="text-2xl font-normal">Application Deadline:</div>
+          <p className="mb-3">No deadline. It's an ongoing open opportunity.</p>
         </div>
       </div>
     </Fragment>

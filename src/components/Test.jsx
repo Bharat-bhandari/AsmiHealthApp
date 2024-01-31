@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import BASE_URL from "../apis/Config";
 
 const Test = () => {
-  const [file, setFile] = useState(null);
+  const [files1, setFiles1] = useState(null);
+  const [files2, setFiles2] = useState(null);
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
+  // const handleFileChange = (event) => {
+  //   setFile(event.target.files[0]);
+  // };
 
-  console.log(file);
+  // console.log(files);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // if (!files) {
+    //   console.error("No file selected.");
+    //   return;
+    // }
+
     const formData = new FormData();
-    // formData.append("email", "bharatbhandari0302@gmail.com");
-    // formData.append("subject", "Test Email with Attachment");
-    // formData.append("text", "This is a test email with attachment.");
-    formData.append("attachment", file);
 
-    console.log("formdata", formData);
+    formData.append("file1", files1[0]); // Use the same field name as expected by Multer
+    formData.append("file2", files2[0]); // Use the same field name as expected by Multer
 
     try {
       const response = await fetch(`${BASE_URL}/testmail`, {
@@ -36,8 +41,19 @@ const Test = () => {
 
   return (
     <div className="my-40">
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleSubmit}>Send Email</button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="file"
+          name="file" // Change this to "file"
+          onChange={(ev) => setFiles1(ev.target.files)}
+        />
+        <input
+          type="file"
+          name="file" // Change this to "file"
+          onChange={(ev) => setFiles2(ev.target.files)}
+        />
+        <button>Send Email</button>
+      </form>
     </div>
   );
 };
