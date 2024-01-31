@@ -23,12 +23,12 @@ const HowItWorks = () => {
     <Fragment>
       <div className="container px-[5%] mx-auto">
         <div className="w-full mx-auto max-w-7xl">
-          <div className="w-full max-w-5xl mt-8 md:mt-32">
-            <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
+          <div className="w-full max-w-5xl mt-6 md:mt-20">
+            {/* <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
               Asmi App
-            </div>
+            </div> */}
             <h1 className="md:text-6xl text-4xl font-semibold text-neutral-900 leading-[1.1] mb-6">
-              Embark on a well-being journey with Asmi.
+              Getting Support Shouldn't Be Complicated
             </h1>
             <p className="mb-4">
               Your dedicated mental health companion, designed to meet your

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import giftImg from "../assets/image/giftCounselling.webp";
+import giftImg from "../assets/image/gift.jpeg";
 import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 

@@ -12,7 +12,7 @@ import aboutusimg8 from "../assets/image/team/skp.png";
 import aboutusimg9 from "../assets/image/team/fgp.png";
 import aboutusimg10 from "../assets/image/team/skp2.png";
 
-import auimage1 from "../assets/image/aboutusimg1.png";
+import humming from "../assets/image/humming.jpeg";
 import auimage2 from "../assets/image/aboutusimg2.png";
 
 import { FaCheckCircle } from "react-icons/fa";
@@ -24,12 +24,12 @@ const AboutPage = () => {
       <section>
         <div className="px-[5%]">
           <div className="w-full max-w-screen-xl mx-auto ">
-            <div className="py-32">
+            <div className="py-8">
               <div className="grid items-center gap-y-16 md:grid-cols-2 auto-cols-auto">
                 <div className=" w-full max-w-[35rem]">
-                  <div className="bg-neutral-100  rounded px-2 py-1  text-neutral-900 text-sm font-semibold leading-[1.4] inline-block">
+                  {/* <div className="bg-neutral-100  rounded px-2 py-1  text-neutral-900 text-sm font-semibold leading-[1.4] inline-block">
                     Values
-                  </div>
+                  </div> */}
                   <div className="p-2 "></div>
                   <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
                     How it started
@@ -109,7 +109,7 @@ const AboutPage = () => {
                 <div>
                   <img
                     className="inline-block object-cover w-[90%] align-middle border-0 rounded-2xl"
-                    src={auimage1}
+                    src={humming}
                     alt=""
                   />
                 </div>
@@ -120,7 +120,7 @@ const AboutPage = () => {
       </section>
       {/*  */}
 
-      <section className="text-white bg-primary04">
+      <section className="mb-40 text-white bg-primary04">
         <div className="px-[5%]">
           <div className="w-full max-w-screen-md mx-auto">
             <div className="py-40">
@@ -367,8 +367,25 @@ const AboutPage = () => {
         </div>
       </section>
 
+      <section className="mx-auto mt-24 mb-20 md:mt-32 ">
+        <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
+          Still have questions?
+        </h4>
+        <p className="py-8 text-lg text-center md:text-xl">
+          No worries! Mental Wellness is no longer complicated
+        </p>
+        <div className="flex justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
+          <NavLink
+            className="p-3 font-semibold bg-white border border-solid rounded-md hover:bg-neutral-200 border-neutral-300 text-neutral-900 "
+            to={"/assessment"}
+          >
+            Take a Free Test
+          </NavLink>
+        </div>
+      </section>
+
       {/*  */}
-      <section>
+      {/* <section>
         <div className="px-[5%]">
           <div className="w-full max-w-screen-xl mx-auto ">
             <div className="py-40">
@@ -401,7 +418,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </Fragment>
   );
 };

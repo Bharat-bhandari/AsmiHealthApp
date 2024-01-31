@@ -4,6 +4,7 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -22,25 +23,52 @@ const Footer = () => {
                         alt=""
                       />
                     </div>
-                    <div className="font-sans text-3xl font-medium leading-normal ">
-                      Download the app now and start your journey to mental
-                      well-being
-                    </div>
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.anjanajyoti.asmi"
+                      target="_blank"
+                    >
+                      <div className="font-sans text-3xl font-medium leading-normal ">
+                        Download the app now and start your journey to mental
+                        well-being
+                      </div>
+                    </a>
                   </div>
                   <div className="flex mt-2 gap-x-3">
-                    <a className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]">
+                    <a
+                      className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]"
+                      href="https://www.linkedin.com/showcase/asmiapp"
+                      target="_blank"
+                    >
                       <div className="w-6 h-6">
                         <TiSocialLinkedin className="w-6 h-6 " />
                       </div>
                     </a>
-                    <a className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]">
+
+                    <a
+                      className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]"
+                      href="https://www.facebook.com/asmiapp"
+                      target="_blank"
+                    >
                       <div className="w-6 h-6">
                         <FaFacebookF className="w-5 h-5" />
                       </div>
                     </a>
-                    <a className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]">
+                    <a
+                      className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]"
+                      href="https://twitter.com/asmiapp"
+                      target="_blank"
+                    >
                       <div className="w-6 h-6">
                         <FaTwitter className="w-5 h-5" />
+                      </div>
+                    </a>
+                    <a
+                      className="w-8 h-8 min-h-[2rem] min-w-[2rem] gap-x-3 gap-y-3 text-white bg-[rgba(255,255,255,0.08)] justify-center items-center text-sm no-underline flex max-w-full rounded-[4rem]"
+                      href="https://www.instagram.com/asmi.app/"
+                      target="_blank"
+                    >
+                      <div className="w-6 h-6">
+                        <FaInstagram className="w-6 h-6 " />
                       </div>
                     </a>
                   </div>

@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         body: ["Inter", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         neutral600: "#475467",
