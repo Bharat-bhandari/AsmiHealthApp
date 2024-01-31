@@ -14,7 +14,7 @@ function generateGiftCardCode() {
 
 // mail the genarted code
 
-function mailGeneratedCode(recipient_email, message) {
+function mailGeneratedCode(userEmail, message, recipientEmail) {
   return new Promise((resolve, reject) => {
     var transporter = nodemailer.createTransport({
       service: "gmail",
@@ -24,9 +24,11 @@ function mailGeneratedCode(recipient_email, message) {
       },
     });
 
+    console.log(message);
+
     const mail_configs = {
       from: process.env.EMAIL_USER,
-      to: recipient_email,
+      to: [userEmail, recipientEmail],
       subject: "Asmi Gift Card Code",
       text: message,
     };
@@ -95,6 +97,10 @@ exports.postOrder = async (req, res) => {
 
 exports.postOrderValidate = async (req, res) => {
   const {
+    userMessage,
+    deliveryDate,
+    recipientEmail,
+    recipientName,
     userEmail,
     userName,
     razorpay_payment_id,
@@ -118,18 +124,38 @@ exports.postOrderValidate = async (req, res) => {
     try {
       const giftCardCode = generateGiftCardCode();
 
-      const message = `Dear ${userName},
+      if (recipientEmail) {
+        console.log("dhcb");
+        const message = `Dear ${recipientName},
 
-Thank you for your purchase!
+  ${userName} gifted you a counselling sessions with Asmi.
 
-Your gift card code is: ${giftCardCode}
+  Your gift card code is: ${giftCardCode}
 
-Please feel free to contact us if you have any questions or concerns.
+  Message from ${userName}: ${userMessage}
 
-Best regards,
-Asmi Team`;
+  Please feel free to contact us if you have any questions or concerns.
 
-      await mailGeneratedCode(userEmail, message);
+  Best regards,
+  Asmi Team`;
+
+        await mailGeneratedCode(userEmail, message, recipientEmail);
+      } else {
+        console.log("In the message");
+
+        const message = `Dear ${userName},
+
+  Thank you for your purchase!
+
+  Your gift card code is: ${giftCardCode}
+
+  Please feel free to contact us if you have any questions or concerns.
+
+  Best regards,
+  Asmi Team`;
+
+        await mailGeneratedCode(userEmail, message);
+      }
 
       await Payment.create({
         giftCardCode,

@@ -8,9 +8,12 @@ import BASE_URL from "../apis/Config";
 
 const GiftCard = () => {
   const [userEmail, setUserEmail] = useState("");
+  const [recipientEmail, setrecipientEmail] = useState("");
   const [userName, setUserName] = useState("");
+  const [recipientName, setRecipentName] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const [message, setMessage] = useState("");
+  const [isMyself, setIsMyself] = useState(true);
 
   // payment-----------------------------
   const paymentHandler = async (event) => {
@@ -35,6 +38,12 @@ const GiftCard = () => {
     const order = await response.json();
     console.log(order);
 
+    if (isMyself) {
+      setRecipentName("");
+      setrecipientEmail("");
+      setMessage("");
+    }
+
     const razorpayKey = await fetch(`${BASE_URL}/getKey`);
 
     const razorpayKeyData = await razorpayKey.json();
@@ -52,6 +61,10 @@ const GiftCard = () => {
           // orderCreationId: order.id,
           userName: userName,
           userEmail: userEmail,
+          recipientName: recipientName,
+          recipientEmail: recipientEmail,
+          deliveryDate: deliveryDate,
+          userMessage: message,
           razorpay_payment_id: response.razorpay_payment_id,
           razorpay_order_id: response.razorpay_order_id,
           razorpay_signature: response.razorpay_signature,
@@ -156,26 +169,32 @@ const GiftCard = () => {
 
                   <h1 className="mt-6">Who's the gift card for?</h1>
                   <div className="grid grid-cols-2 my-2 gap-x-2">
-                    <div className="grid-cols-1 px-5 py-2 text-center border border-black">
+                    <div
+                      onClick={() => setIsMyself(false)}
+                      className={
+                        "px-5 py-2 text-center border cursor-pointer " +
+                        (!isMyself
+                          ? "bg-[#e8effd] border-[#1a6aff]"
+                          : "border-black")
+                      }
+                    >
                       For someone else
                     </div>
-                    <div className="px-5 py-2 border bg-[#e8effd] border-[#1a6aff] text-center">
+                    <div
+                      onClick={() => setIsMyself(true)}
+                      className={
+                        "px-5 py-2 text-center border cursor-pointer " +
+                        (isMyself
+                          ? "bg-[#e8effd] border-[#1a6aff]"
+                          : "border-black")
+                      }
+                    >
                       For myself
                     </div>
                   </div>
 
                   <div>
-                    <label className="block my-1 ">Email</label>
-                    <input
-                      type="email"
-                      className="block w-full p-2 mb-4 bg-white border border-black border-solid min-h-12"
-                      value={userEmail}
-                      onChange={(e) => setUserEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block my-1">Name:</label>
+                    <label className="block my-1">Your Name*</label>
                     <input
                       type="text"
                       className="block w-full p-2 mb-6 bg-white border border-black border-solid min-h-12"
@@ -184,25 +203,47 @@ const GiftCard = () => {
                       required
                     />
                   </div>
-                  {/* <div>
-                    <label className="block my-1">Delivery Date:</label>
+
+                  <div>
+                    <label className="block my-1 ">Your Email*</label>
                     <input
-                      type="date"
-                      className="block w-full p-2 mb-6 bg-white border border-black border-solid min-h-12"
-                      value={deliveryDate}
-                      onChange={(e) => setDeliveryDate(e.target.value)}
+                      type="email"
+                      className="block w-full p-2 mb-4 bg-white border border-black border-solid min-h-12"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block my-1">Message</label>
-                    <textarea
-                      value={message}
-                      placeholder="Type your message.."
-                      className="w-full p-2 mb-4 bg-white border border-black border-solid rounded min-h-32"
-                      onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
-                  </div> */}
+                  {!isMyself && (
+                    <div>
+                      <label className="block my-1">Recipient Name*</label>
+                      <input
+                        type="text"
+                        className="block w-full p-2 mb-6 bg-white border border-black border-solid min-h-12"
+                        value={recipientName}
+                        onChange={(e) => setRecipentName(e.target.value)}
+                        required
+                      />
+
+                      <label className="block my-1 ">Recipient Email*</label>
+                      <input
+                        type="email"
+                        className="block w-full p-2 mb-4 bg-white border border-black border-solid min-h-12"
+                        value={recipientEmail}
+                        onChange={(e) => setrecipientEmail(e.target.value)}
+                        required
+                      />
+
+                      <label className="block my-1">Message*</label>
+                      <textarea
+                        value={message}
+                        placeholder="Type your message.."
+                        className="w-full p-2 mb-4 bg-white border border-black border-solid rounded min-h-32"
+                        onChange={(e) => setMessage(e.target.value)}
+                      ></textarea>
+                    </div>
+                  )}
+
                   <button className="w-full p-3 text-white transition transform bg-black hover:bg-neutral-900">
                     Buy now
                   </button>

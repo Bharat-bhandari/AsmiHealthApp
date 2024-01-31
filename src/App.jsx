@@ -14,6 +14,7 @@ import Assessment from "./components/Assessment";
 import PsychoIntern from "./components/PsychoIntern";
 import MarketingIntern from "./components/MarketingIntern";
 import Careers from "./components/Careers";
+import Test from "./components/Test";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/psychologyinternship", element: <PsychoIntern /> },
       { path: "/marketinginternship", element: <MarketingIntern /> },
       { path: "/careers", element: <Careers /> },
+      { path: "/test", element: <Test /> },
     ],
   },
 ]);
