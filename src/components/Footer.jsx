@@ -81,24 +81,42 @@ const Footer = () => {
                           Pages
                         </div>
                       </div>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <NavLink
+                        to={"/"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
                         Home
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        About Us
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        Terms of Use
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        Privacy Policy
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        Refund
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        FAQs
-                      </a>
+                      </NavLink>
+                      <NavLink
+                        to={"/how-it-works"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        How It Works
+                      </NavLink>
+                      <NavLink
+                        to={"/about-us"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        Team
+                      </NavLink>
+                      <NavLink
+                        to={"/counselors"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        Counselors
+                      </NavLink>
+                      <NavLink
+                        to={"/blogs"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        Blogs
+                      </NavLink>
+                      <NavLink
+                        to={"/contact-us"}
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                      >
+                        Contact Us
+                      </NavLink>
                     </div>
                   </div>
                   <div className="flex-col grid-rows-[auto] grid-cols-[100%] auto-cols-[100%] items-start justify-items-start flex">
@@ -108,20 +126,33 @@ const Footer = () => {
                           Socials
                         </div>
                       </div>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <a
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                        href="https://www.facebook.com/asmiapp"
+                        target="_blank"
+                      >
                         Facebook
                       </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <a
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                        href="https://www.instagram.com/asmi.app/"
+                        target="_blank"
+                      >
                         Instagram
                       </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <a
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                        href="https://twitter.com/asmiapp"
+                        target="_blank"
+                      >
                         Twitter
                       </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
+                      <a
+                        className=" text-[color:var(--white-64)] text-sm no-underline py-1.5"
+                        target="_blank"
+                        href="https://www.linkedin.com/showcase/asmiapp"
+                      >
                         Linkedin
-                      </a>
-                      <a className=" text-[color:var(--white-64)] text-sm no-underline py-1.5">
-                        Youtube
                       </a>
                     </div>
                   </div>

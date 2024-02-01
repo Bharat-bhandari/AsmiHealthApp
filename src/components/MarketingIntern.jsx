@@ -1,4 +1,5 @@
 import { useState, Fragment } from "react";
+
 const MarketingIntern = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,18 +18,61 @@ const MarketingIntern = () => {
   const [dpw, setDpw] = useState("");
 
   const sendMail = async (event) => {
+    event.preventDefault();
+
+    const InternData = new FormData();
+
+    // Append personal information
+    InternData.append("firstName", firstName);
+    InternData.append("lastName", lastName);
+    InternData.append("email", email);
+    InternData.append("phoneNumber", phoneNumber);
+    InternData.append("address", address);
+
+    // Append educational information
+    InternData.append("universityName", universityName);
+    InternData.append("collegeName", collegeName);
+    InternData.append("dcs", dcs);
+
+    // Append internship preferences
+    InternData.append("internpref", internpref);
+    InternData.append("noh", noh);
+
+    // Append team-related information
+    InternData.append("qnMember", qnMember);
+    InternData.append("viewSm", viewSm);
+    InternData.append("smc", smc);
+    InternData.append("smcl", smcl);
+
+    // Append project-related information
+    InternData.append("dpw", dpw);
+
     try {
-      const response = await fetch("http://localhost:4000/send-career", {
+      const response = await fetch("http://localhost:4000/send-mIntern", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({}),
+
+        body: InternData,
       });
 
       if (!response.ok) {
         throw new Error("Network response was not ok.");
       }
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhoneNumber("");
+      setAddress("");
+      setUniversityName("");
+      setCollegeName("");
+      setDcs("");
+      setInternpref("");
+      setNoh("");
+      setQnMember("");
+      setViewSm("");
+      setSmc("");
+      setSmcl("");
+      setDpw("");
 
       // Reset input fields
     } catch (error) {
@@ -423,7 +467,7 @@ const MarketingIntern = () => {
               </div>
 
               <input
-                className="bg-[#f35637] text-white px-4 py-1 rounded-md"
+                className="px-4 py-1 text-white rounded-md bg-primary03 hover:bg-primary05"
                 type="submit"
                 value="Submit"
               />

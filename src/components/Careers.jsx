@@ -28,30 +28,32 @@ const Careers = () => {
 
     const careerData = new FormData();
 
-    // Append personal information
-    careerData.append("firstName", firstName);
-    careerData.append("lastName", lastName);
-    careerData.append("email", email);
-    careerData.append("phoneNumber", phoneNumber);
-    careerData.append("address", address);
+    // set personal information
+    careerData.set("firstName", firstName);
+    careerData.set("lastName", lastName);
+    careerData.set("email", email);
+    careerData.set("phoneNumber", phoneNumber);
+    careerData.set("address", address);
 
-    // Append educational information
-    careerData.append("highDegree", highDegree);
-    careerData.append("universityName", universityName);
-    careerData.append("yog", yog);
-    careerData.append("lanKnown", lanKnown);
-    careerData.append("degree", degree[0]);
+    // set educational information
+    careerData.set("highDegree", highDegree);
+    careerData.set("universityName", universityName);
+    careerData.set("yog", yog);
+    careerData.set("lanKnown", lanKnown);
+    careerData.set("degree", degree[0]);
 
-    // Append professional information
-    careerData.append("Rci", Rci);
-    careerData.append("noyPractice", noyPractice);
-    careerData.append("expRes", expRes);
-    careerData.append("expText", expText);
-    careerData.append("shareSession", shareSession);
-    careerData.append("noh", noh);
-    careerData.append("available", available);
-    careerData.append("specialization", specialization);
-    careerData.append("cv", cv[0]);
+    // set professional information
+    careerData.set("Rci", Rci);
+    careerData.set("noyPractice", noyPractice);
+    careerData.set("expRes", expRes);
+    careerData.set("expText", expText);
+    careerData.set("shareSession", shareSession);
+    careerData.set("noh", noh);
+    careerData.set("available", available);
+    careerData.set("specialization", specialization);
+    careerData.set("cv", cv[0]);
+
+    console.log(careerData);
 
     try {
       const response = await fetch("http://localhost:4000/send-career", {
@@ -63,6 +65,26 @@ const Careers = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok.");
       }
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhoneNumber("");
+      setAddress("");
+      setHighDegree("");
+      setUniversityName("");
+      setYog("");
+      setLanKnown("");
+      setDegree("");
+      setRci("");
+      setNoyPractice("");
+      setExpRes("");
+      setExpText("");
+      setshareSession("");
+      setNoh("");
+      setAvailable("");
+      setSpecialization("");
+      setCv("");
 
       // Reset input fields
     } catch (error) {
@@ -354,7 +376,7 @@ const Careers = () => {
               </div>
               <div className="mt-3 mb-1">
                 <input
-                  className="bg-[#f35637] text-white px-4 py-1 rounded-md"
+                  className="px-4 py-1 text-white rounded-md bg-primary03 hover:bg-primary05"
                   type="submit"
                   value="Submit"
                 />

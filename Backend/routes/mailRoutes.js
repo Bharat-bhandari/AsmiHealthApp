@@ -16,7 +16,20 @@ router.post(
   mailControllers.postFormMail
 );
 
-router.post("/send-career", mailControllers.postCareerMail);
+router.post(
+  "/send-career",
+  uploads.fields([
+    { name: "degree", maxCount: 1 },
+    { name: "cv", maxCount: 1 },
+  ]),
+  mailControllers.postCareerMail
+);
+
+router.post("/send-mIntern", uploads.none(), mailControllers.postmInternMail);
+
+router.post("/send-pIntern", uploads.none(), mailControllers.postpInternMail);
+
+router.post("/send-yoga", uploads.none(), mailControllers.postYogaMail);
 
 router.post("/send-email", mailControllers.postMail);
 

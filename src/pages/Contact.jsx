@@ -9,6 +9,8 @@ const Contact = () => {
   const [message, setMessages] = useState("");
 
   const sendMail = async (event) => {
+    event.preventDefault();
+
     if (recipient_email && message) {
       try {
         const response = await fetch(`${BASE_URL}/send-email`, {
