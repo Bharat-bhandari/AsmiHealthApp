@@ -21,8 +21,16 @@ import aboutusimg2 from "../assets/image/aboutusimg2.png";
 import { NavLink } from "react-router-dom";
 import Chidiya from "../components/Chidiya";
 import Carousal from "../components/Carousal";
+import { motion } from "framer-motion";
 
 const HomePage = () => {
+  const text1 = "Transform Your Mental Health Journey With Asmi".split(" ");
+  const text2 = "  Powerful tools at your fingertips".split(" ");
+  const text3 = "Be The Guardian Angel".split(" ");
+  const text4 = " Get Free Yoga Sessions".split(" ");
+  const text5 = " Still have questions?".split(" ");
+  const text6 = "  Asmi App Key Features?".split(" ");
+
   return (
     <div className="container px-[5%] mx-auto ">
       <Chidiya />
@@ -31,59 +39,83 @@ const HomePage = () => {
         <div className="py-12 md:py-28">
           <div className="flex flex-col items-center ">
             {/* start section */}
-            <section className="relative">
-              <div className="w-full max-w-5xl mx-auto text-center">
-                <h1 className="pb-6 font-sans text-5xl font-semibold md:text-7xl text-neutral-900">
-                  Transform Your Mental Health Journey With Asmi
-                </h1>
-                <p>
-                  Truly Instant, Affordable & Anonymous - Mental Health
-                  Counselling App
-                </p>
+            <motion.div
+              animate={{ y: -40 }}
+              transition={{ ease: "easeOut", duration: 2 }}
+              whileInView={{ opacity: 1 }}
+            >
+              <section className="relative">
+                <div className="w-full max-w-5xl mx-auto text-center">
+                  {/* <h1 className="pb-6 font-sans text-5xl font-semibold md:text-7xl text-neutral-900">
+                    Transform Your Mental Health Journey With Asmi
+                  </h1> */}
+                  <div className="pb-6 font-sans text-5xl font-semibold md:text-7xl text-neutral-900">
+                    {text1.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        whileInView={{
+                          opacity: 1,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          delay: i / 10,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
+                  </div>
+                  <p>
+                    Truly Instant, Affordable & Anonymous - Mental Health
+                    Counselling App
+                  </p>
 
-                <div className="flex justify-center">
-                  <img className="h-72  md:h-[32rem]" src={peace1} alt="" />
+                  <div className="flex justify-center">
+                    <img className="h-72  md:h-[32rem]" src={peace1} alt="" />
+                  </div>
                 </div>
-              </div>
-              <div className="absolute -z-10 top-[-4rem] bottom-auto right-auto left-[-8rem]">
-                <img
-                  className="max-h-32 md:max-h-[17.5rem]"
-                  src={graphic1}
-                  alt="graphic"
-                />
-              </div>
-              <div className="absolute top-auto bottom-1 right-[-8rem] z-10 left-auto">
-                <img
-                  className=" max-h-32 md:max-h-[17.5rem]"
-                  src={graphic2}
-                  alt="graphic"
-                />
-              </div>
-              <div className="absolute -z-10 top-[-3rem] bottom-auto right-[-7rem] left-auto">
-                <img
-                  className="max-h-20 md:max-h-[8rem]"
-                  src={graphic3}
-                  alt="graphic"
-                />
-              </div>
-              <div className="absolute z-10 top-auto bottom-32 right-auto left-[-2.5rem]">
-                <img
-                  className="max-h-20  md:max-h-[8rem]"
-                  src={graphic4}
-                  alt="graphic"
-                />
-              </div>
-            </section>
+                <div className="absolute -z-10 top-[-4rem] bottom-auto right-auto left-[-8rem]">
+                  <img
+                    className="max-h-32 md:max-h-[17.5rem]"
+                    src={graphic1}
+                    alt="graphic"
+                  />
+                </div>
+                <div className="absolute top-auto bottom-1 right-[-8rem] z-10 left-auto">
+                  <img
+                    className=" max-h-32 md:max-h-[17.5rem]"
+                    src={graphic2}
+                    alt="graphic"
+                  />
+                </div>
+                <div className="absolute -z-10 top-[-3rem] bottom-auto right-[-7rem] left-auto">
+                  <img
+                    className="max-h-20 md:max-h-[8rem]"
+                    src={graphic3}
+                    alt="graphic"
+                  />
+                </div>
+                <div className="absolute z-10 top-auto bottom-32 right-auto left-[-2.5rem]">
+                  <img
+                    className="max-h-20  md:max-h-[8rem]"
+                    src={graphic4}
+                    alt="graphic"
+                  />
+                </div>
+              </section>
 
-            <div>
-              <h1 className="max-w-4xl mt-4 font-sans text-center md:mt-12 md:text-2xl">
-                Asmi provides the best Online Counseling in India and around the
-                globe. Consult Online Psychologists and counselors, mental
-                health experts via video call within 60 seconds. Experience the
-                best in online psychologist consultations – affordable, Instant,
-                and available 24/7
-              </h1>
-            </div>
+              <div>
+                <h1 className="max-w-4xl mt-4 font-sans text-center md:mt-12 md:text-2xl">
+                  Asmi provides the best Online Counseling in India and around
+                  the globe. Consult Online Psychologists and counselors, mental
+                  health experts via video call within 60 seconds. Experience
+                  the best in online psychologist consultations – affordable,
+                  Instant, and available 24/7
+                </h1>
+              </div>
+            </motion.div>
             {/*End of start section */}
 
             {/* Screenshot */}
@@ -108,16 +140,53 @@ const HomePage = () => {
             </section>
             {/* End of Screenshot */}
 
-            <div className="py-4 font-sans text-3xl font-semibold text-center md:text-5xl md:py-24 text-neutral-900">
+            {/* <div className="py-4 font-sans text-3xl font-semibold text-center md:text-5xl md:py-24 text-neutral-900">
               Powerful tools at your fingertips
+            </div> */}
+            <div className="my-12">
+              {text2.map((el, i) => (
+                <motion.span
+                  className="py-4 font-sans text-3xl font-semibold text-center md:text-5xl md:py-24 text-neutral-900"
+                  initial={{ opacity: 0 }}
+                  // animate={{ opacity: 1 }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                    delay: i / 10,
+                  }}
+                  key={i}
+                >
+                  {el}{" "}
+                </motion.span>
+              ))}
             </div>
 
             {/* Asmi App */}
             <section>
               <div className="grid items-center mt-8 gap-x-20 gap-y-16 md:grid-cols-2 auto-cols-auto">
                 <div className=" w-full max-w-[35rem]">
-                  <div className="text-3xl font-semibold leading-[1.2] font-sans text-neutral-900">
+                  {/* <div className="text-3xl font-semibold leading-[1.2] font-sans text-neutral-900">
                     Asmi App Key Features
+                  </div> */}
+                  <div className="text-3xl font-semibold leading-[1.2] font-sans text-neutral-900">
+                    {text1.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        whileInView={{
+                          opacity: 1,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          delay: i / 10,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
                   </div>
 
                   <ul className="pl-6 list-disc md:pt-4">
@@ -169,6 +238,7 @@ const HomePage = () => {
                   <div>
                     <a
                       href="https://play.google.com/store/apps/details?id=com.anjanajyoti.asmi"
+                      rel="noreferrer"
                       target="_blank"
                     >
                       <img
@@ -201,8 +271,26 @@ const HomePage = () => {
                       src={yogaLogo}
                       alt=""
                     />
-                    <div className="text-3xl text-center md:text-4xl ">
+                    {/* <div className="text-3xl text-center md:text-4xl ">
                       Get Free Yoga Sessions
+                    </div> */}
+                    <div className="text-3xl text-center md:text-4xl">
+                      {text4.map((el, i) => (
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          // animate={{ opacity: 1 }}
+                          whileInView={{
+                            opacity: 1,
+                          }}
+                          transition={{
+                            duration: 0.25,
+                            delay: i / 10,
+                          }}
+                          key={i}
+                        >
+                          {el}{" "}
+                        </motion.span>
+                      ))}
                     </div>
                   </div>
                   <div className="flex flex-col items-center justify-center mt-4">
@@ -213,7 +301,7 @@ const HomePage = () => {
                     <div className="flex mt-4 justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
                       <NavLink
                         className="p-3 font-semibold bg-white border border-solid rounded-md hover:bg-neutral-200 border-neutral-300 text-neutral-900 "
-                        to={"/yoga-form"}
+                        to={"/contact-us"}
                       >
                         Sign up
                       </NavLink>
@@ -226,8 +314,26 @@ const HomePage = () => {
 
             {/* GiftCard */}
             <section>
-              <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
+              {/* <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
                 Be The Guardian Angel
+              </div> */}
+              <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
+                {text3.map((el, i) => (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    // animate={{ opacity: 1 }}
+                    whileInView={{
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      delay: i / 10,
+                    }}
+                    key={i}
+                  >
+                    {el}{" "}
+                  </motion.span>
+                ))}
               </div>
 
               <h1 className="mx-auto text-center md:w-3/4">
@@ -259,8 +365,26 @@ const HomePage = () => {
             {/*End of Carousal */}
 
             <section className="mx-auto mt-24 md:mt-32 ">
-              <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
+              {/* <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
                 Still have questions?
+              </h4> */}
+              <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
+                {text5.map((el, i) => (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    // animate={{ opacity: 1 }}
+                    whileInView={{
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      delay: i / 10,
+                    }}
+                    key={i}
+                  >
+                    {el}{" "}
+                  </motion.span>
+                ))}
               </h4>
               <p className="py-8 text-lg text-center md:text-xl">
                 No worries! Mental Wellness is no longer complicated

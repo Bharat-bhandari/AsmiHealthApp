@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { useEffect, useRef, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 
 import aboutusimg1 from "../assets/image/team/uhf.png";
@@ -18,7 +18,12 @@ import auimage2 from "../assets/image/aboutusimg2.png";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 
+import { motion } from "framer-motion";
+
 const AboutPage = () => {
+  const text1 = " How it started".split(" ");
+  const text2 = " People Behind ASMI".split(" ");
+  const text3 = "Still have questions?".split(" ");
   return (
     <Fragment>
       <section>
@@ -31,8 +36,26 @@ const AboutPage = () => {
                     Values
                   </div> */}
                   <div className="p-2 "></div>
-                  <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
+                  {/* <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
                     How it started
+                  </div> */}
+                  <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
+                    {text1.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        whileInView={{
+                          opacity: 1,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          delay: i / 10,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
                   </div>
                   <div className="py-4 "></div>
                   <p className="pb-4 my-0 text-lg text-neutral-600">
@@ -129,9 +152,28 @@ const AboutPage = () => {
                   <div className="text-white bg-[rgba(255,255,255,0.08)] rounded px-2 py-1 text-sm font-semibold leading-[1.4] inline-block">
                     Meet the Team
                   </div>
+
                   <div className="p-4 "></div>
-                  <div className="text-white  text-5xl font-semibold leading-[1.2] font-sans">
+                  {/* <div className="text-white  text-5xl font-semibold leading-[1.2] font-sans">
                     People Behind ASMI
+                  </div> */}
+                  <div className="text-white  text-5xl font-semibold leading-[1.2] font-sans">
+                    {text2.map((el, i) => (
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        // animate={{ opacity: 1 }}
+                        whileInView={{
+                          opacity: 1,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          delay: i / 10,
+                        }}
+                        key={i}
+                      >
+                        {el}{" "}
+                      </motion.span>
+                    ))}
                   </div>
                   <div className="p-6 "></div>
                   <p className=" text-white  mt-0 mb-2.5">
@@ -146,218 +188,375 @@ const AboutPage = () => {
               <div className="p-20"></div>
               <div>
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-8 auto-cols-auto justify-items-center ">
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className="flex flex-col items-start p-8 rounded-lg h-[27rem] bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg1}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg1}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Ujjwal Handa
+                        </div>
+                        <div className="text-sm">Founder</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I bring a passion for innovation and a strategic
+                          mindset to drive the companys success.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Ujjwal Handa</div>
-                      <div className="text-sm">Founder</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I bring a passion for innovation and a strategic mindset
-                        to drive the companys success.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg2}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg2}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Arvinder Kaur
+                        </div>
+                        <div className="text-sm">Marketing</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I specialize in driving online presence and brand
+                          visibility to new heights.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Arvinder Kaur</div>
-                      <div className="text-sm">Marketing</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I specialize in driving online presence and brand
-                        visibility to new heights.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg3}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg3}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">Md. Riswan</div>
+                        <div className="text-sm">Product Development</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          As a skilled Front-end Flutter Developer, I specialize
+                          in creating visually appealing and responsive user
+                          interfaces for mobile applications.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Md. Riswan</div>
-                      <div className="text-sm">Product Development</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        As a skilled Front-end Flutter Developer, I specialize
-                        in creating visually appealing and responsive user
-                        interfaces for mobile applications.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg4}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg4}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">Md. Safvan</div>
+                        <div className="text-sm">Product Development</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          As an adept Python Django Developer, I specialize in
+                          crafting robust and scalable web applications.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Md. Safvan</div>
-                      <div className="text-sm">Product Development</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        As an adept Python Django Developer, I specialize in
-                        crafting robust and scalable web applications.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg5}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg5}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">Ayushi Rana</div>
+                        <div className="text-sm">Finance</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I specialize in ensuring financial excellence and
+                          stability within organizations.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Ayushi Rana</div>
-                      <div className="text-sm">Finance</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I specialize in ensuring financial excellence and
-                        stability within organizations.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className="h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg6}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg6}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">Tanvi Gupta</div>
+                        <div className="text-sm">Human Rescource</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I specialize in identifying and nurturing exceptional
+                          talent to create vibrant workplace environments.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Tanvi Gupta</div>
-                      <div className="text-sm">Human Rescource</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I specialize in identifying and nurturing exceptional
-                        talent to create vibrant workplace environments.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg7}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg7}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Shraddha Gupta
+                        </div>
+                        <div className="text-sm">Psychologist</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          My personal way to healing others is very holistic,
+                          warm and flexible.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">
-                        Shraddha Gupta
-                      </div>
-                      <div className="text-sm">Psychologist</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        My personal way to healing others is very holistic, warm
-                        and flexible.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg8}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg8}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Saloni Karwa
+                        </div>
+                        <div className="text-sm">Psychologist</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I am a dedicated and compassionate psychologist with a
+                          masters degree in clinical psychology.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">Saloni Karwa</div>
-                      <div className="text-sm">Psychologist</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I am a dedicated and compassionate psychologist with a
-                        masters degree in clinical psychology.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className=" h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg10}
-                          alt=""
-                        />
-                      </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">
-                        Shivangi Kapoor
-                      </div>
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg10}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Shivangi Kapoor
+                        </div>
 
-                      <div className="text-sm">Psychologist</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        Counselling psychologist with a Masters in Clinical
-                        Psychology and 2 years of experience in aiding
-                        management of Mood disorders, Personality disorders,
-                        Relationship/ Family Issues, Workplace/ Academic Stress
-                        Management and General Stress.
-                      </p>
-                      <div className="p-4 "></div>
+                        <div className="text-sm">Psychologist</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          Counselling psychologist with a Masters in Clinical
+                          Psychology and 2 years of experience in aiding
+                          management of Mood disorders, Personality disorders,
+                          Relationship/ Family Issues, Workplace/ Academic
+                          Stress Management and General Stress.
+                        </p>
+                        <div className="p-4 "></div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
-                    <div>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    whileInView={"visible"}
+                    variants={{
+                      visible: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                          type: "spring",
+                        },
+                      },
+                      hidden: { opacity: 1, y: 50 },
+                    }}
+                  >
+                    <div className="h-[27rem] flex flex-col items-start p-8 rounded-lg bg-darkSlateGrey">
                       <div>
-                        <img
-                          className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
-                          src={aboutusimg9}
-                          alt=""
-                        />
+                        <div>
+                          <img
+                            className=" w-36 h-36 min-h-[5rem] min-w-[5rem] object-cover rounded-[100%] max-w-full inline-block"
+                            src={aboutusimg9}
+                            alt=""
+                          />
+                        </div>
+                        <div className="p-4 "></div>
+                        <div className="text-xl font-semibold">
+                          Felicia Gangmei
+                        </div>
+                        <div className="text-sm">Psychologist</div>
+                        <div className="p-4 "></div>
+                        <p className="mt-0 mb-0 text-sm text-white">
+                          I am a dedicated Counselling Psychologist committed to
+                          supporting individuals on their journey towards
+                          emotional well-being and personal growth.
+                        </p>
+                        <div className="p-4 "></div>
                       </div>
-                      <div className="p-4 "></div>
-                      <div className="text-xl font-semibold">
-                        Felicia Gangmei
-                      </div>
-                      <div className="text-sm">Psychologist</div>
-                      <div className="p-4 "></div>
-                      <p className="mt-0 mb-0 text-sm text-white">
-                        I am a dedicated Counselling Psychologist committed to
-                        supporting individuals on their journey towards
-                        emotional well-being and personal growth.
-                      </p>
-                      <div className="p-4 "></div>
                     </div>
-                  </div>
+                  </motion.div>
 
                   <div className="p-24"></div>
                 </div>
@@ -368,8 +567,26 @@ const AboutPage = () => {
       </section>
 
       <section className="mx-auto mt-24 mb-20 md:mt-32 ">
-        <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
+        {/* <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
           Still have questions?
+        </h4> */}
+        <h4 className="font-sans text-3xl font-semibold text-center text-neutral-900">
+          {text3.map((el, i) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              whileInView={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.25,
+                delay: i / 10,
+              }}
+              key={i}
+            >
+              {el}{" "}
+            </motion.span>
+          ))}
         </h4>
         <p className="py-8 text-lg text-center md:text-xl">
           No worries! Mental Wellness is no longer complicated
