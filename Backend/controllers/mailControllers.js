@@ -407,3 +407,40 @@ exports.postYogaMail = async (req, res) => {
     res.status(500).send("Error handling uploads");
   }
 };
+exports.postAsseemnetMail = async (req, res) => {
+  try {
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const { name, email } = req.body;
+
+    const emailMessage = `
+    Asmi - Assesment form  :
+    
+    Personal Information:
+    - UserName: ${name}
+    - Email: ${email}
+   
+  
+    `;
+
+    let mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "bharatbhandari0302@gmail.com", // Change this to the recipient's email address
+      subject: "New Form Submission",
+      text: emailMessage,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.send("sent mail successful");
+  } catch (error) {
+    console.error("Error handling uploads:", error);
+    res.status(500).send("Error handling uploads");
+  }
+};

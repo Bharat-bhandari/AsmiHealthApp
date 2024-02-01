@@ -15,10 +15,15 @@ import g4 from "../assets/image/graphic04.svg";
 import yoga from "../assets/image/yoga.jpg";
 import yogaLogo from "../assets/image/yogaLogo.png";
 import gift from "../assets/image/gift.jpg";
+import { motion } from "framer-motion";
 
 import { NavLink } from "react-router-dom";
 
 const HowItWorks = () => {
+  const text1 = " Getting Support Shouldn't Be Complicated".split(" ");
+  const text3 = "Be The Guardian Angel".split(" ");
+  const text4 = " Get Free Yoga Sessions".split(" ");
+
   return (
     <Fragment>
       <div className="container px-[5%] mx-auto">
@@ -27,8 +32,26 @@ const HowItWorks = () => {
             {/* <div className="px-2 py-1 mb-4 border border-solid rounded-md border-neutral-900 max-w-fit">
               Asmi App
             </div> */}
-            <h1 className="md:text-6xl text-4xl font-semibold text-neutral-900 leading-[1.1] mb-6">
+            {/* <h1 className="md:text-6xl text-4xl font-sans font-semibold text-neutral-900 leading-[1.1] md:mb-6">
               Getting Support Shouldn't Be Complicated
+            </h1> */}
+            <h1 className="md:text-6xl text-4xl font-sans font-semibold text-neutral-900 leading-[1.1] md:mb-6">
+              {text1.map((el, i) => (
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  // animate={{ opacity: 1 }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                    delay: i / 10,
+                  }}
+                  key={i}
+                >
+                  {el}{" "}
+                </motion.span>
+              ))}
             </h1>
             <p className="mb-4">
               Your dedicated mental health companion, designed to meet your
@@ -128,7 +151,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Asmi App */}
-        <section className="mb-24">
+        <section className="mt-8 mb-24">
           <div>
             <div className="flex md:flex-row flex-col items-center justify-center w-[70%] mx-auto h-full md:gap-12 md:py-12 px-8 rounded-xl bg-neutral-1">
               <div>
@@ -155,9 +178,8 @@ const HowItWorks = () => {
           </div>
         </section>
         {/* End of Asmi App */}
-
         {/* Free Yoga */}
-        <section className="mb-20 md:my-32">
+        <section className="my-32">
           <div className="grid items-center md:grid-cols-2 gap-x-20 gap-y-0 auto-cols-auto">
             <div className="flex flex-col items-center w-full h-full p-4 rounded-xl">
               <img className="w-full h-full rounded-xl" src={yoga} alt="yoga" />
@@ -170,13 +192,31 @@ const HowItWorks = () => {
                   src={yogaLogo}
                   alt=""
                 />
-                <div className="text-3xl text-center md:text-4xl ">
-                  Get Free Yoga Sessions
+                {/* <div className="text-3xl text-center md:text-4xl ">
+                      Get Free Yoga Sessions
+                    </div> */}
+                <div className="text-3xl text-center md:text-4xl">
+                  {text4.map((el, i) => (
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      // animate={{ opacity: 1 }}
+                      whileInView={{
+                        opacity: 1,
+                      }}
+                      transition={{
+                        duration: 0.25,
+                        delay: i / 10,
+                      }}
+                      key={i}
+                    >
+                      {el}{" "}
+                    </motion.span>
+                  ))}
                 </div>
               </div>
               <div className="flex flex-col items-center justify-center mt-4">
                 <p className="text-center">
-                  Enjoy 0ur Daily Free Online Yoga Sessions, offered multiple
+                  Enjoy Our Daily Free Online Yoga Sessions, offered multiple
                   times during both mornings and evenings.
                 </p>
                 <div className="flex mt-4 justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
@@ -194,9 +234,27 @@ const HowItWorks = () => {
         {/* End of Free Yoga */}
 
         {/* GiftCard */}
-        <section className="pb-24">
+        <section>
+          {/* <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
+                Be The Guardian Angel
+              </div> */}
           <div className="font-sans text-3xl font-semibold text-center md:pb-2 md:text-4xl text-neutral-900">
-            Be The Guardian Angel
+            {text3.map((el, i) => (
+              <motion.span
+                initial={{ opacity: 0 }}
+                // animate={{ opacity: 1 }}
+                whileInView={{
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.25,
+                  delay: i / 10,
+                }}
+                key={i}
+              >
+                {el}{" "}
+              </motion.span>
+            ))}
           </div>
 
           <h1 className="mx-auto text-center md:w-3/4">
@@ -215,7 +273,7 @@ const HowItWorks = () => {
             </NavLink>
           </div>
 
-          <div className="md:w-[80%]  mx-auto ">
+          <div className="md:w-[80%]  mx-auto">
             <img src={gift} alt="counselling" />
           </div>
         </section>

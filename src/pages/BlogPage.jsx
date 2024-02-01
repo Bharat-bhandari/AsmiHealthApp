@@ -6,8 +6,12 @@ import { setUserName } from "../store/slices/userInfo";
 import Blog from "../components/Blog";
 import BASE_URL from "../apis/Config";
 
+import { motion } from "framer-motion";
+
 const BlogPage = () => {
   const dispatch = useDispatch();
+
+  const text1 = "Latest Blogs".split(" ");
 
   const [posts, setPosts] = useState([]);
 
@@ -48,8 +52,23 @@ const BlogPage = () => {
         <section className="container mt-16 md:pt-32">
           <div>
             <div className="w-full max-w-2xl">
-              <div className="text-4xl font-semibold md:mb-10 md:text-5xl text-neutral-900">
-                Latest Blogs
+              <div className="md:text-6xl text-4xl font-sans font-semibold text-neutral-900 leading-[1.1] md:mb-6">
+                {text1.map((el, i) => (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    // animate={{ opacity: 1 }}
+                    whileInView={{
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.25,
+                      delay: i / 10,
+                    }}
+                    key={i}
+                  >
+                    {el}{" "}
+                  </motion.span>
+                ))}
               </div>
               <p className="mb-8 md:mb-20 ">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo

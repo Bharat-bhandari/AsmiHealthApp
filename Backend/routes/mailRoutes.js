@@ -31,6 +31,12 @@ router.post("/send-pIntern", uploads.none(), mailControllers.postpInternMail);
 
 router.post("/send-yoga", uploads.none(), mailControllers.postYogaMail);
 
+router.post(
+  "/send-assesment",
+  uploads.none(),
+  mailControllers.postAsseemnetMail
+);
+
 router.post("/send-email", mailControllers.postMail);
 
 module.exports = router;

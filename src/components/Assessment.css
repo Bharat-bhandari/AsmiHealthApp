@@ -106,10 +106,6 @@
   background-color: #ff3333;
 }
 
-.btn:hover {
-  background-color: ;
-}
-
 .btn:focus {
   outline: none;
 }

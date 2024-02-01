@@ -23,7 +23,6 @@ import LekshmyImage from "../assets/image/Counselor/Lekshmy.jpg";
 import ManjulaImage from "../assets/image/Counselor/Manjula.jpeg";
 import ManviSodhiImage from "../assets/image/Counselor/Manvi Sodhi.jpg";
 import MeghaImage from "../assets/image/Counselor/Megha.jpg";
-import MohitVermaImage from "../assets/image/Counselor/Mohit Verma.jpeg";
 import MuskanTikooImage from "../assets/image/Counselor/Muskan Tikoo.jpeg";
 import NaincyImage from "../assets/image/Counselor/Naincy.jpeg";
 import NamrataImage from "../assets/image/Counselor/Namrata.jpg";

@@ -39,7 +39,7 @@ const AboutPage = () => {
                   {/* <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
                     How it started
                   </div> */}
-                  <div className="mt-4 font-sans text-5xl font-semibold leading-5 text-neutral-900">
+                  <div className="md:text-6xl text-4xl font-sans font-semibold text-neutral-900 leading-[1.1] md:mb-6">
                     {text1.map((el, i) => (
                       <motion.span
                         initial={{ opacity: 0 }}

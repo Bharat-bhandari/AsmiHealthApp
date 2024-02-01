@@ -109,10 +109,10 @@ const HomePage = () => {
               <div>
                 <h1 className="max-w-4xl mt-4 font-sans text-center md:mt-12 md:text-2xl">
                   Asmi provides the best Online Counseling in India and around
-                  the globe. Consult Online Psychologists and counselors, mental
-                  health experts via video call within 60 seconds. Experience
-                  the best in online psychologist consultations – affordable,
-                  Instant, and available 24/7
+                  the globe.Connect within 60 seconds with qualified,
+                  experienced and registered Psychologists via video call.
+                  Experience the best in online therapy – affordable, Instant,
+                  and available 24/7
                 </h1>
               </div>
             </motion.div>
@@ -171,7 +171,7 @@ const HomePage = () => {
                     Asmi App Key Features
                   </div> */}
                   <div className="text-3xl font-semibold leading-[1.2] font-sans text-neutral-900">
-                    {text1.map((el, i) => (
+                    {text6.map((el, i) => (
                       <motion.span
                         initial={{ opacity: 0 }}
                         // animate={{ opacity: 1 }}
@@ -197,7 +197,7 @@ const HomePage = () => {
                     </li>
                     <li className="md:p-2">
                       <p>
-                        Reveal your identity or remain anonymous, it's your
+                        Remain anonymous or reveal your identity, it's your
                         choice.
                       </p>
                     </li>
@@ -220,10 +220,7 @@ const HomePage = () => {
                       </p>
                     </li>
                     <li className="md:p-2">
-                      <p>
-                        No subscriptions. You pay per session and yes, it's
-                        affordable! Also, Selfcare packs are free!
-                      </p>
+                      <p>Change Selfcare to Wellness Kits</p>
                     </li>
                   </ul>
                 </div>
@@ -295,7 +292,7 @@ const HomePage = () => {
                   </div>
                   <div className="flex flex-col items-center justify-center mt-4">
                     <p className="text-center">
-                      Enjoy 0ur Daily Free Online Yoga Sessions, offered
+                      Enjoy Our Daily Free Online Yoga Sessions, offered
                       multiple times during both mornings and evenings.
                     </p>
                     <div className="flex mt-4 justify-center transition duration-300 ease-in-out  hover:translate-y-[-2px]">
